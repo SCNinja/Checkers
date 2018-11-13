@@ -12,7 +12,7 @@ import java.util.LinkedList;
  *
  */
 public class Board {
-	private static final int SIZE = 8;
+	private static final int SIZE = 5;
 	private ArrayList<Piece> pieces;
 	/**
 	 * constructor that creates a blank board
