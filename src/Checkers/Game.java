@@ -185,7 +185,12 @@ public class Game extends JFrame{
 	 * @param c
 	 *            - the current move/click of the player
 	 */
-	//public void playerMove(Click c) {
-
+	//public void playerMove(Click cPiece Click cMove) {
+		//first check if it is in the bounds of the board --> else, invalid click
+		//check what box they clicked in (going to be a mod in here to get the actual spot they clicked
+			//have to do it for both x and y and then if they're in certain ranges thatst the box and want it to give me numbers 0-8 that I can use to check the arraylist[][] spot
+		//valid if in a white box, is one diagonal from the current position(the first click), and their isn't a piece already there
+			//better to generate the 2 boxes they can click in from the cPiece and then check validity? or get click then check if it meets the criteria?
+	
 	//}
 }
