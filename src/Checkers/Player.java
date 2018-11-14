@@ -21,7 +21,7 @@ public class Player {
 	
 	/**
 	 * returns the current number of pieces for that player
-	 * @return - numpieces
+	 * @return - number of pieces
 	 */
 	public int getNumPieces() {
 		return(numPieces);
