@@ -17,6 +17,7 @@ public class Piece {
 	private Color c;
 	private boolean king;
 	
+	//test push and commit
 	/**
 	 * this default constructor will make a "blank" piece to be stored arbitrarily
 	 */
