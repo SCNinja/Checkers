@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 class CheckersTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	public void isGameLoop() {
+		
 	}
 
 }
