@@ -1,6 +1,7 @@
 package Checkers;
 
 import java.awt.Color;
+import java.awt.Graphics;
 /**
  * This class makes pieces with their respective attributes
  * 
@@ -11,6 +12,7 @@ import java.awt.Color;
 public class Piece {
 	private int xLoc;
 	private int yLoc;
+	private int radius;
 	private static final int RADUIS = 0;
 	private Color c;
 	private boolean king;
@@ -29,9 +31,10 @@ public class Piece {
 	 * @param y - the top edge
 	 * @param color - the color of the piece per player
 	 */
-	public Piece(int x, int y, Color color) {
+	public Piece(int x, int y, int r, Color color) {
 		xLoc = x;
 		yLoc = y;
+		radius = r;
 		c = color;
 	}
 	
@@ -88,4 +91,10 @@ public class Piece {
 	public void setKing(boolean k) {
 		king = k;
 	}
+	
+	public void draw(Graphics g, Color c) {
+		g.setColor(c);
+		g.fillOval(xLoc,yLoc,2*radius, 2*radius);
+	}
+	
 }
