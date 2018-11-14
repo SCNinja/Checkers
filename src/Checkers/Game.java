@@ -98,11 +98,6 @@ public class Game extends JFrame{
 		title.setBounds(200,35,200,50);
 		title.setText("<html><h1>CHECKERS!!!</h1></html>");
 	}
-	public static void main(String[] args)
-	{
-		Game g = new Game();
-		g.gameLoop();
-	}
 
 	/**
 	 * This method runs the game as long as there are moves available
