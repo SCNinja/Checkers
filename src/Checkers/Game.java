@@ -60,7 +60,8 @@ public class Game extends JFrame{
 	 * This is a default constructor for a game
 	 */
 	public Game() {
-		
+		//initial board
+		gameBoard = new Board();
 		//initial pieces
 		R1 = new Piece(30,130,25,Color.RED);
 		R2 = new Piece(150,130,25,Color.RED);
@@ -107,6 +108,12 @@ public class Game extends JFrame{
 	 * This method runs the game as long as there are moves available
 	 */
 	public void gameLoop() {
+		boolean playGame = true;
+		//most of the code in this method will end up inside this loop
+		//while (playGame = true) {
+			//will check if a player won and exist loop if they have
+			//playGame = !gameBoard.hasWon(currPlayer);
+		//}
 		frame = new JFrame("Checkers Game");
 		frame.setBounds(0,0,545,700);
 		//frame.setBackground(Color.WHITE);
