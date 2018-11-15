@@ -83,14 +83,16 @@ public class Piece {
 	 * set the color for the piece if it becomes a king
 	 */
 	public void setColortoKingColor() {
-	
+		if (king == true)
+			this.c = c.darker();
+	}
 	/**
 	 * set boolean to true if the piece is made a king elsewhere
 	 * @para - set the king to true
 	 */
-	}
 	public void setKing(boolean k) {
-		king = k;
+		if (k == true)
+			king = true;
 	}
 	
 	public void draw(Graphics g, Color c) {
