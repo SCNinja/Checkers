@@ -13,7 +13,7 @@ public class Piece {
 	private int xLoc;
 	private int yLoc;
 	private int radius;
-	private static final int RADUIS = 0;
+	private static final int RADIUS = 0;
 	private Color c;
 	private boolean king;
 	
