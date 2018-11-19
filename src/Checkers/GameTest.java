@@ -10,5 +10,9 @@ class GameTest {
 	public void testTest() {
 		Assert.assertEquals(3, 3);
 	}
+	
+	/* IDEAS FOR TESTS
+	 * 
+	 */
 
 }

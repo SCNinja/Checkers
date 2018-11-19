@@ -37,6 +37,7 @@ public class Piece {
 		yLoc = y;
 		radius = r;
 		c = color;
+		king = false;
 	}
 	
 	/**

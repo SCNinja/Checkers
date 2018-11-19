@@ -21,6 +21,14 @@ public class Board {
 
 	}
 	
+	public ArrayList<Piece> getPieces() {
+		return pieces;
+	}
+
+	public void setPieces(ArrayList<Piece> pieces) {
+		this.pieces = pieces;
+	}
+
 	/**
 	 * checks for a valid move
 	 * @param p - the current player
