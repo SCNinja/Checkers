@@ -37,7 +37,20 @@ class PieceTest {
 		Assert.assertEquals(Color.black.darker(), piece.getColor());
 	}
 	
+	@Test
+	public void defaultPiecexLoc() {
+		Piece piece = new Piece();
+		Assert.assertEquals(0, piece.getXLoc());
+	}
+	
+	@Test
+	public void defaultPieceyLoc() {
+		Piece piece = new Piece();
+		Assert.assertEquals(0, piece.getYLoc());
+	}
+	
 	/* IDEAS FOR TESTS
+	 * 
 	 */
 
 }
