@@ -20,8 +20,10 @@ public class Board extends Game implements MouseListener {
 	/**
 	 * constructor that creates a blank board
 	 */
+
 	public Board() {
 		this.pieces = new ArrayList<>();
+
 	}
 
 	
