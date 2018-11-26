@@ -13,6 +13,7 @@ public class Piece {
 	private int xLoc;
 	private int yLoc;
 	private int radius;
+	@SuppressWarnings("unused")
 	private static final int RADIUS = 0;
 	private Color c;
 	private boolean king;
@@ -37,6 +38,7 @@ public class Piece {
 		yLoc = y;
 		radius = r;
 		c = color;
+		king = false;
 	}
 	
 	/**
