@@ -18,7 +18,7 @@ public class Board {
 	 * constructor that creates a blank board
 	 */
 	public Board() {
-
+		pieces = new ArrayList<>();
 	}
 	
 	/**
