@@ -39,7 +39,7 @@ class BoardTest {
 	@Test
 	public void yPixelsToGrid() {
 		Board board = new Board();
-		int pixel = 200;
+		int pixel = 201;
 		int grid = board.xPixelToGrid(pixel);
 		Assert.assertEquals(2, grid);	
 	}
