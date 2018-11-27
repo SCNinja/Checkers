@@ -64,6 +64,7 @@ public class Game extends JFrame{
 		//initial board
 		//gameBoard = new Board();
 		//initial pieces
+		//************************in pixels needs to be in coordinates
 		R1 = new Piece(30,130,25,Color.RED);
 		R2 = new Piece(150,130,25,Color.RED);
 		R3 = new Piece(270,130,25,Color.RED);

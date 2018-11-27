@@ -88,7 +88,7 @@ public class Board extends Game implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent me) {
 		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
-		
+		int x = me.getX();
 	}
 
 	@Override
