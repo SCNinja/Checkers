@@ -8,7 +8,9 @@ package Checkers;
  */
 public class Checkers {
 	public static void main(String[]args) {
+		System.out.println("Print statement");
 		Game g = new Game();
 		g.gameLoop();
+		System.out.println("Print statement");
 	}
 }
