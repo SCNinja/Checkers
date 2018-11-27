@@ -13,6 +13,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+//test
 /**
  * This class physically creates the board/GUI, takes in the players moves and
  * changes the board/board display accordingly, and will also end the turn
@@ -23,7 +24,7 @@ import java.awt.GridLayout;
  */
 public class Game extends JFrame{
 	private boolean endTurn;
-	private Board gameBoard;
+	//private Board gameBoard;
 	private Player currPlayer;
 	private JFrame frame;
 	private JPanel board;
@@ -61,7 +62,7 @@ public class Game extends JFrame{
 	 */
 	public Game() {
 		//initial board
-		gameBoard = new Board();
+		//gameBoard = new Board();
 		//initial pieces
 		R1 = new Piece(30,130,25,Color.RED);
 		R2 = new Piece(150,130,25,Color.RED);
