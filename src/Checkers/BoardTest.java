@@ -1,6 +1,7 @@
 package Checkers;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -31,15 +32,15 @@ class BoardTest {
 	@Test
 	public void xPixelsToGrid() {
 		Board board = new Board();
-		int pixel = 100;
+		int pixel = 86;
 		int grid = board.xPixelToGrid(pixel);
-		Assert.assertEquals(2, grid);	
+		Assert.assertEquals(1, grid);	
 	}
 	
 	@Test
 	public void yPixelsToGrid() {
 		Board board = new Board();
-		int pixel = 201;
+		int pixel = 186;
 		int grid = board.xPixelToGrid(pixel);
 		Assert.assertEquals(2, grid);	
 	}
