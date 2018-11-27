@@ -61,7 +61,7 @@ public class Game extends JFrame{
 	 */
 	public Game() {
 		//initial board
-		gameBoard = new Board();
+		//gameBoard = new Board();
 		//initial pieces
 		R1 = new Piece(30,130,25,Color.RED);
 		R2 = new Piece(150,130,25,Color.RED);
