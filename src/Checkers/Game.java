@@ -27,7 +27,7 @@ public class Game extends JFrame{
 	private Player currPlayer;
 	private JFrame frame;
 	private JPanel board;
-	private LinkedList list;
+	private LinkedList list1;
 	private JButton finishTurn;
 	private JLabel title;
 	
