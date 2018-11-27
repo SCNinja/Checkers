@@ -17,15 +17,18 @@ public class Board extends Game implements MouseListener {
 	private static final int SIZE = 8;
 	
 	private ArrayList<Piece> pieces;
+
 	private LinkedList<Integer> xCoords;
 	private LinkedList<Integer> yCoords;
+
 	/**
 	 * constructor that creates a blank board
 	 */
 
 	public Board() {
 		this.pieces = new ArrayList<>();
-
+		this.xCoords = new LinkedList<>();
+		this.yCoords = new LinkedList<>();
 	}
 
 	
@@ -41,11 +44,31 @@ public class Board extends Game implements MouseListener {
 	/**
 	 * checks for a valid move
 	 * @param p - the current player
-	 * @param list - the linkedList of clicks
 	 */
-	public void play(Player p, LinkedList list) {
-		gameBoard.addMouseListener(this);
-		list = new LinkedList<Click>(); //This loads a linkedlist with clicks...need a click object? -M
+	public void play(Player p) {
+		if((xCoords.get(0) >= 25) && (xCoords.get(0) <= 505) &&
+				(yCoords.get(0) <= 125) && (yCoords.get(0) >= 605))
+		{
+			
+		}
+	}
+	
+	/**
+	 * Determines which block of the grid an x-coordinate pixel is located in
+	 * @param p the pixel to be converted into a grid number
+	 */
+	public void xPixelToGrid(int p)
+	{
+		
+	}
+	
+	/**
+	 * Determines which block of the grid a y-coordinate pixel is located in
+	 * @param p the pixel to be converted into a grid number
+	 */
+	public void yPixelToGrid(int p)
+	{
+		
 	}
 
 	/**
@@ -61,7 +84,7 @@ public class Board extends Game implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent me) {
 		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
-
+		
 	}
 
 	@Override
