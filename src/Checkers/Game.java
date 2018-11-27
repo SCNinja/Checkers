@@ -25,7 +25,7 @@ import java.awt.GridLayout;
 public class Game extends JFrame{
 	private boolean endTurn;
 	//private Board gameBoard;
-	private Player currPlayer;
+	private Player currPlayer;	
 	private JFrame frame;
 	private JPanel board;
 	private LinkedList list;
@@ -65,31 +65,31 @@ public class Game extends JFrame{
 		//gameBoard = new Board();
 		//initial pieces
 		//************************in pixels needs to be in coordinates
-		R1 = new Piece(30,130,25,Color.RED);
-		R2 = new Piece(150,130,25,Color.RED);
-		R3 = new Piece(270,130,25,Color.RED);
-		R4 = new Piece(390,130,25,Color.RED);
-		R5 = new Piece(90,190,25,Color.RED);
-		R6 = new Piece(210,190,25,Color.RED);
-		R7 = new Piece(330,190,25,Color.RED);
-		R8 = new Piece(450,190,25,Color.RED);
-		R9 = new Piece(30,250,25,Color.RED);
-		R10 = new Piece(150,250,25,Color.RED);
-		R11 = new Piece(270,250,25,Color.RED);
-		R12 = new Piece(390,250,25,Color.RED);
+		R1 = new Piece(0,0,25,Color.RED);
+		R2 = new Piece(2,0,25,Color.RED);
+		R3 = new Piece(4,0,25,Color.RED);
+		R4 = new Piece(6,0,25,Color.RED);
+		R5 = new Piece(1,1,25,Color.RED);
+		R6 = new Piece(3,1,25,Color.RED);
+		R7 = new Piece(5,1,25,Color.RED);
+		R8 = new Piece(7,1,25,Color.RED);
+		R9 = new Piece(0,2,25,Color.RED);
+		R10 = new Piece(2,2,25,Color.RED);
+		R11 = new Piece(4,2,25,Color.RED);
+		R12 = new Piece(6,2,25,Color.RED);
 		//initial pieces
-		B1 = new Piece(90,430,25,Color.BLACK);
-		B2 = new Piece(210,430,25,Color.BLACK);
-		B3 = new Piece(330,430,25,Color.BLACK);
-		B4 = new Piece(450,430,25,Color.BLACK);
-		B5 = new Piece(30,490,25,Color.BLACK);
-		B6 = new Piece(150,490,25,Color.BLACK);
-		B7 = new Piece(270,490,25,Color.BLACK);
-		B8 = new Piece(390,490,25,Color.BLACK);
-		B9 = new Piece(90,550,25,Color.BLACK);
-		B10 = new Piece(210,550,25,Color.BLACK);
-		B11 = new Piece(330,550,25,Color.BLACK);
-		B12 = new Piece(450,550,25,Color.BLACK);
+		B1 = new Piece(1,5,25,Color.BLACK);
+		B2 = new Piece(3,5,25,Color.BLACK);
+		B3 = new Piece(5,5,25,Color.BLACK);
+		B4 = new Piece(7,5,25,Color.BLACK);
+		B5 = new Piece(0,6,25,Color.BLACK);
+		B6 = new Piece(2,6,25,Color.BLACK);
+		B7 = new Piece(4,6,25,Color.BLACK);
+		B8 = new Piece(6,6,25,Color.BLACK);
+		B9 = new Piece(1,7,25,Color.BLACK);
+		B10 = new Piece(3,7,25,Color.BLACK);
+		B11 = new Piece(5,7,25,Color.BLACK);
+		B12 = new Piece(7,7,25,Color.BLACK);
 		
 		finishTurn = new JButton("End Turn");
 		finishTurn.setBounds(355,615,150,40);

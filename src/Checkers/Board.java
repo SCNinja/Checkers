@@ -18,8 +18,9 @@ public class Board extends Game implements MouseListener {
 	
 	private ArrayList<Piece> pieces;
 
-	private LinkedList<Integer> xCoords;
-	private LinkedList<Integer> yCoords;
+	//in Game Class
+	private Click c1;
+	private Click c2;
 
 	/**
 	 * constructor that creates a blank board
@@ -89,6 +90,11 @@ public class Board extends Game implements MouseListener {
 	public void mouseClicked(MouseEvent me) {
 		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
 		int x = me.getX();
+		int xCoord = xPixelToGrid(x);
+		int y = me.getY();
+		int yCoord = yPixelToGrid(y);
+		
+		//intantiate c1 = Click(xCoord, yCoord)
 	}
 
 	@Override
