@@ -28,6 +28,22 @@ class BoardTest {
 		Assert.assertEquals(true, hasWon);
 	}
 	
+	@Test
+	public void xPixelsToGrid() {
+		Board board = new Board();
+		int pixel = 100;
+		int grid = board.xPixelToGrid(pixel);
+		Assert.assertEquals(2, grid);	
+	}
+	
+	@Test
+	public void yPixelsToGrid() {
+		Board board = new Board();
+		int pixel = 200;
+		int grid = board.xPixelToGrid(pixel);
+		Assert.assertEquals(2, grid);	
+	}
+	
 	/* IDEAS FOR TESTS
 	 * If a click is on the edge of a board space, make sure it registers and either
 	 * doesn't do anything to the valid move list. 
