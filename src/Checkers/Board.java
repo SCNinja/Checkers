@@ -53,20 +53,24 @@ public class Board extends Game implements MouseListener {
 	
 	/**
 	 * Determines which block of the grid an x-coordinate pixel is located in
-	 * @param p the pixel to be converted into a grid number
+	 * @param - p the pixel to be converted into a grid number
+	 * @return - the x-coordinate of the grid the pixel is in
 	 */
-	public void xPixelToGrid(int p)
+	public int xPixelToGrid(int p)
 	{
-		
+		int result = (p - 25) / 60;
+		return result;
 	}
 	
 	/**
 	 * Determines which block of the grid a y-coordinate pixel is located in
-	 * @param p the pixel to be converted into a grid number
+	 * @param - p the pixel to be converted into a grid number
+	 * @return - the y-coordinate of the grid the pixel is in
 	 */
-	public void yPixelToGrid(int p)
+	public int yPixelToGrid(int p)
 	{
-		
+		int result = (p - 125) / 60;
+		return result;
 	}
 
 	/**
