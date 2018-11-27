@@ -91,6 +91,7 @@ public class Game extends JFrame{
 		
 		finishTurn = new JButton("End Turn");
 		finishTurn.setBounds(355,615,150,40);
+		finishTurn.setLocation(355,615);
 		finishTurn.setBackground(Color.BLACK);
 		finishTurn.setForeground(Color.WHITE);
 		
@@ -123,8 +124,9 @@ public class Game extends JFrame{
 					for(int j = 1;j<9; j++ ) {
 						if ((i%2 == 0 && j%2==1)||(i%2 == 1 && j%2==0)) {
 							g.drawRect(60*i+25,65+60*j, 60, 60);
+							System.out.println(65+60*j);
 						}
-						else{
+						else {
 							g.fillRect(60*i+25,65+60*j, 60, 60);
 							g.drawRect(60*i+25,65+60*j, 60, 60);
 						}
