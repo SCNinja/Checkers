@@ -17,6 +17,8 @@ public class Board extends Game implements MouseListener {
 	private static final int SIZE = 8;
 	
 	private ArrayList<Piece> pieces;
+	
+	
 	/**
 	 * constructor that creates a blank board
 	 */
