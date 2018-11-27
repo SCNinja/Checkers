@@ -13,7 +13,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-//test
+
 /**
  * This class physically creates the board/GUI, takes in the players moves and
  * changes the board/board display accordingly, and will also end the turn
