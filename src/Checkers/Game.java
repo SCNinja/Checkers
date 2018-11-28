@@ -150,12 +150,14 @@ public class Game extends JFrame implements MouseListener{
 			//playGame = !gameBoard.hasWon(currPlayer);
 		//}
 		frame = new JFrame("Checkers Game");
-		frame.addMouseListener(this);
+		
 		frame.setBounds(0,0,545,700);
 		//frame.setBackground(Color.WHITE);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		board = new JPanel() {
+		board = new JPanel() 	
+		{
 			public void paintComponent(Graphics g) {
+				
 				g.setColor(Color.WHITE);
 				g.fillRect(0, 0, frame.getWidth(), frame.getHeight()-100);
 				//add squares
@@ -206,6 +208,7 @@ public class Game extends JFrame implements MouseListener{
 			}
 			
 		};
+		board.addMouseListener(this);
 		
 		frame.add(board);
 		
