@@ -85,18 +85,18 @@ public class Board extends Game implements MouseListener {
 	}
 
 	//Apparently you have to make events for each type of mouse event there is... -M
-	@Override
+	
 	public void mouseClicked(MouseEvent me) {
 		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
 		int x = me.getX();
 	}
 
-	@Override
+
 	public void mouseEntered(MouseEvent me) {
 		System.out.println("Mouse entered the board at X: " + me.getX() + "/tY: " + me.getY());
 	}
 
-	@Override
+	
 	public void mouseExited(MouseEvent me) {
 		/*if (me.getX = outside the board/piece && me.getY = outside the board/piece) {
 		 * System.out.println("Invalid Click. Try again);
@@ -105,7 +105,6 @@ public class Board extends Game implements MouseListener {
 		me.getClickCount();
 	}
 
-	@Override
 	public void mousePressed(MouseEvent me) {
 		me.getClickCount();
 		//These two can tell us where the piece was piece was moved to/which piece they clicked on-M
@@ -113,7 +112,6 @@ public class Board extends Game implements MouseListener {
 		me.getY();
 	}
 
-	@Override
 	public void mouseReleased(MouseEvent me) {
 		me.getClickCount();
 		//These two can tell us where the piece was piece was moved to/which piece they clicked on-M
