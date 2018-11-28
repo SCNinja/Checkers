@@ -17,9 +17,32 @@ public class Board extends Game implements MouseListener {
 	private static final int SIZE = 8;
 	
 	private ArrayList<Piece> pieces;
-
 	private LinkedList<Integer> xCoords;
 	private LinkedList<Integer> yCoords;
+
+	//in Game Class
+	private Click c1;
+	private Click c2;
+
+	public Click getC1() {
+		return c1;
+	}
+
+
+	public void setC1(Click c1) {
+		this.c1 = c1;
+	}
+
+
+	public Click getC2() {
+		return c2;
+	}
+
+
+	public void setC2(Click c2) {
+		this.c2 = c2;
+	}
+
 
 	/**
 	 * constructor that creates a blank board
@@ -38,6 +61,26 @@ public class Board extends Game implements MouseListener {
 
 	public void setPieces(ArrayList<Piece> pieces) {
 		this.pieces = pieces;
+	}
+
+
+	public LinkedList<Integer> getxCoords() {
+		return xCoords;
+	}
+
+
+	public void setxCoords(LinkedList<Integer> xCoords) {
+		this.xCoords = xCoords;
+	}
+
+
+	public LinkedList<Integer> getyCoords() {
+		return yCoords;
+	}
+
+
+	public void setyCoords(LinkedList<Integer> yCoords) {
+		this.yCoords = yCoords;
 	}
 
 
@@ -89,6 +132,11 @@ public class Board extends Game implements MouseListener {
 	public void mouseClicked(MouseEvent me) {
 		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
 		int x = me.getX();
+		int xCoord = xPixelToGrid(x);
+		int y = me.getY();
+		int yCoord = yPixelToGrid(y);
+		
+		//intantiate c1 = Click(xCoord, yCoord)
 	}
 
 
