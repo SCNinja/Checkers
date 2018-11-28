@@ -130,15 +130,12 @@ public class Game extends JFrame implements MouseListener{
 		//intantiate c1 = Click(xCoord, yCoord)
 	}
 
-
 	public void mouseEntered(MouseEvent me) {
 	}
 	public void mouseExited(MouseEvent me) {	
 	}
-
 	public void mousePressed(MouseEvent me) {
 	}
-
 	public void mouseReleased(MouseEvent me) {
 	}
 	/**
