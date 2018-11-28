@@ -100,10 +100,34 @@ public class Board extends Game implements MouseListener {
 	 * @param - p the pixel to be converted into a grid number
 	 * @return - the x-coordinate of the grid the pixel is in
 	 */
-	public int xPixelToGrid(int p)
+	public int xPixelToGrid(int xPixel)
 	{
-		int result = (p - 25) / 60;
-		return result;
+		
+		if(xPixel > 25 && xPixel < 85) {
+			return 0;
+		}
+		else if(xPixel > 85 && xPixel < 145) {
+			return 1;
+		}
+		else if (xPixel > 145 && xPixel < 205) {
+			return 2;
+		}
+		else if (xPixel > 205 && xPixel < 265) {
+			return 3;
+		}
+		else if (xPixel > 265 && xPixel < 325) {
+			return 4;
+		}
+		else if (xPixel > 325 && xPixel < 385) {
+			return 5;
+		}
+		else if (xPixel > 385 && xPixel < 445) {
+			return 6;
+		}
+		else if (xPixel > 445 && xPixel < 505) {
+			return 7;
+		}
+		return 100;
 	}
 	
 	/**
@@ -111,10 +135,33 @@ public class Board extends Game implements MouseListener {
 	 * @param - p the pixel to be converted into a grid number
 	 * @return - the y-coordinate of the grid the pixel is in
 	 */
-	public int yPixelToGrid(int p)
+	public int yPixelToGrid(int yPixel)
 	{
-		int result = (p - 125) / 60;
-		return result;
+		if(yPixel > 125 && yPixel < 185) {
+			return 0;
+		}
+		else if(yPixel > 185 && yPixel < 245) {
+			return 1;
+		}
+		else if (yPixel > 245 && yPixel < 305) {
+			return 2;
+		}
+		else if (yPixel > 305 && yPixel < 365) {
+			return 3;
+		}
+		else if (yPixel > 365 && yPixel < 425) {
+			return 4;
+		}
+		else if (yPixel > 425 && yPixel < 485) {
+			return 5;
+		}
+		else if (yPixel > 485 && yPixel < 545) {
+			return 6;
+		}
+		else if (yPixel > 545 && yPixel < 605) {
+			return 7;
+		}
+		return 100;
 	}
 
 	/**
