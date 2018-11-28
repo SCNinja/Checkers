@@ -20,6 +20,8 @@ public class Board extends Game implements MouseListener {
 	private Piece[][] pieces;
 	
 	
+	
+	
 	//in Game Class
 	private Click c1;
 	private Click c2;
@@ -52,8 +54,8 @@ public class Board extends Game implements MouseListener {
 		//Setting the new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
 		//Will eventually be commented out?
-		this.xCoords = new LinkedList<>();
-		this.yCoords = new LinkedList<>();
+		//this.xCoords = new LinkedList<>();
+		//this.yCoords = new LinkedList<>();
 	}
 
 	
@@ -69,11 +71,14 @@ public class Board extends Game implements MouseListener {
 	 * @param p - the current player
 	 */
 	public void play(Player p) {
-		if((xCoords.get(0) >= 25) && (xCoords.get(0) <= 505) &&
+		//Commenting this out for tests sake.
+		
+		//If x and y coordinates of click are inside the board.
+		/*if((xCoords.get(0) >= 25) && (xCoords.get(0) <= 505) &&
 				(yCoords.get(0) <= 125) && (yCoords.get(0) >= 605))
 		{
 			
-		}
+		}*/
 	}
 	
 	/**

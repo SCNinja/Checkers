@@ -9,13 +9,6 @@ import org.junit.jupiter.api.Test;
 import junit.framework.Assert;
 
 class BoardTest {
-
-	@Test
-	public void piecesListSize() {
-		Board board = new Board();
-		ArrayList<Piece> pieces = board.getPieces();
-		Assert.assertEquals(24, pieces.size());
-	}
 	
 	@Test
 	public void hasWon() {
