@@ -16,6 +16,7 @@ public class Board extends Game implements MouseListener {
 
 	private static final int SIZE = 8;
 	
+	//Deleted the LinkedLists and storing the pieces in a 2D array instead
 	private Piece[][] pieces;
 	
 	
@@ -48,41 +49,21 @@ public class Board extends Game implements MouseListener {
 	 */
 
 	public Board() {
+		//Setting the new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
+		//Will eventually be commented out?
 		this.xCoords = new LinkedList<>();
 		this.yCoords = new LinkedList<>();
 	}
 
 	
-	public ArrayList<Piece> getPieces() {
+	public Piece [][] getPieces() {
 		return pieces;
 	}
 
-	public void setPieces(ArrayList<Piece> pieces) {
+	public void setPieces(Piece [][] pieces) {
 		this.pieces = pieces;
 	}
-
-
-	public LinkedList<Integer> getxCoords() {
-		return xCoords;
-	}
-
-
-	public void setxCoords(LinkedList<Integer> xCoords) {
-		this.xCoords = xCoords;
-	}
-
-
-	public LinkedList<Integer> getyCoords() {
-		return yCoords;
-	}
-
-
-	public void setyCoords(LinkedList<Integer> yCoords) {
-		this.yCoords = yCoords;
-	}
-
-
 	/**
 	 * checks for a valid move
 	 * @param p - the current player
@@ -100,6 +81,7 @@ public class Board extends Game implements MouseListener {
 	 * @param - p the pixel to be converted into a grid number
 	 * @return - the x-coordinate of the grid the pixel is in
 	 */
+	//This method returns the piece that is in the parameters designated by the values in the for loop
 	public int xPixelToGrid(int xPixel)
 	{
 		
@@ -135,6 +117,7 @@ public class Board extends Game implements MouseListener {
 	 * @param - p the pixel to be converted into a grid number
 	 * @return - the y-coordinate of the grid the pixel is in
 	 */
+	//This method returns the piece that is in the parameters designated by the values in the for loop
 	public int yPixelToGrid(int yPixel)
 	{
 		if(yPixel > 125 && yPixel < 185) {
@@ -173,7 +156,3 @@ public class Board extends Game implements MouseListener {
 		return (false);
 	}
 }
-
-	//Apparently you have to make events for each type of mouse event there is... -M
-	
-	

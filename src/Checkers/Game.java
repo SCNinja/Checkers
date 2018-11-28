@@ -25,6 +25,7 @@ import java.awt.event.MouseListener;
  *         Danenhower
  */
 public class Game extends JFrame implements MouseListener{
+	
 	private boolean endTurn;
 	//private Board gameBoard;
 	private Player currPlayer;	
@@ -33,7 +34,12 @@ public class Game extends JFrame implements MouseListener{
 	private LinkedList list1;
 	private JButton finishTurn;
 	private JLabel title;
+	//Made clicks private in this class because this is where we will eventually call them
+	protected int clickCount;
+	private Click c1;
+	private Click c2;
 	
+	//made each piece protected to we can call them from the Piece class...?
 	protected Piece R1;
 	protected Piece R2;
 	protected Piece R3;
@@ -117,7 +123,7 @@ public class Game extends JFrame implements MouseListener{
 		int result = (p - 125) / 60;
 		return result;
 	}
-
+	//Created a new MouseEvent that gets both the x and y coordinates 
 	public void mouseClicked(MouseEvent me) {
 		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
 		int x = me.getX();
@@ -126,10 +132,15 @@ public class Game extends JFrame implements MouseListener{
 		int y = me.getY();
 		int yCoord = yPixelToGrid(y);
 		System.out.println(y + " " + yCoord);
-		
-		//intantiate c1 = Click(xCoord, yCoord)
+		//Created loops for clicks that take in the x and y coordinates
+		if (clickCount == 1) {
+			c1 = new Click (xCoord, yCoord);
+		}
+		else if (clickCount == 2) {
+			c2 = new Click (xCoord, yCoord);
+		}
 	}
-
+	//Moved all from Board class, Empty methods so Java doesn't yell at us (and bc we don't need them)
 	public void mouseEntered(MouseEvent me) {
 	}
 	public void mouseExited(MouseEvent me) {	
@@ -208,6 +219,8 @@ public class Game extends JFrame implements MouseListener{
 			}
 			
 		};
+		//Added the mouseListener onto the JPanel so it registers the clicks as opposed
+		//to adding it to the board itself.
 		board.addMouseListener(this);
 		
 		frame.add(board);
