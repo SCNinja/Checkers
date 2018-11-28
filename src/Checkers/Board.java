@@ -16,10 +16,9 @@ public class Board extends Game implements MouseListener {
 
 	private static final int SIZE = 8;
 	
-	private ArrayList<Piece> pieces;
-	private LinkedList<Integer> xCoords;
-	private LinkedList<Integer> yCoords;
-
+	private Piece[][] pieces;
+	
+	
 	//in Game Class
 	private Click c1;
 	private Click c2;
@@ -49,7 +48,7 @@ public class Board extends Game implements MouseListener {
 	 */
 
 	public Board() {
-		this.pieces = new ArrayList<>();
+		this.pieces = new Piece [SIZE][SIZE];
 		this.xCoords = new LinkedList<>();
 		this.yCoords = new LinkedList<>();
 	}
@@ -126,44 +125,8 @@ public class Board extends Game implements MouseListener {
 	public boolean hasWon(Player p) {
 		return (false);
 	}
+}
 
 	//Apparently you have to make events for each type of mouse event there is... -M
 	
-	public void mouseClicked(MouseEvent me) {
-		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
-		int x = me.getX();
-		int xCoord = xPixelToGrid(x);
-		int y = me.getY();
-		int yCoord = yPixelToGrid(y);
-		
-		//intantiate c1 = Click(xCoord, yCoord)
-	}
-
-
-	public void mouseEntered(MouseEvent me) {
-		System.out.println("Mouse entered the board at X: " + me.getX() + "/tY: " + me.getY());
-	}
-
 	
-	public void mouseExited(MouseEvent me) {
-		/*if (me.getX = outside the board/piece && me.getY = outside the board/piece) {
-		 * System.out.println("Invalid Click. Try again);
-		 * }
-		 */
-		me.getClickCount();
-	}
-
-	public void mousePressed(MouseEvent me) {
-		me.getClickCount();
-		//These two can tell us where the piece was piece was moved to/which piece they clicked on-M
-		me.getX();
-		me.getY();
-	}
-
-	public void mouseReleased(MouseEvent me) {
-		me.getClickCount();
-		//These two can tell us where the piece was piece was moved to/which piece they clicked on-M
-		me.getX();
-		me.getY();
-	}
-}

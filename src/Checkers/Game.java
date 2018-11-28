@@ -13,6 +13,8 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * This class physically creates the board/GUI, takes in the players moves and
@@ -22,7 +24,7 @@ import java.awt.GridLayout;
  * @author Moriah Krause, Jonathon Lannon, Meagan McBurney, Paul Hodge, and Sara
  *         Danenhower
  */
-public class Game extends JFrame{
+public class Game extends JFrame implements MouseListener{
 	private boolean endTurn;
 	//private Board gameBoard;
 	private Player currPlayer;	
@@ -32,31 +34,31 @@ public class Game extends JFrame{
 	private JButton finishTurn;
 	private JLabel title;
 	
-	private Piece R1;
-	private Piece R2;
-	private Piece R3;
-	private Piece R4;
-	private Piece R5;
-	private Piece R6;
-	private Piece R7;
-	private Piece R8;
-	private Piece R9;
-	private Piece R10;
-	private Piece R11;
-	private Piece R12;
+	protected Piece R1;
+	protected Piece R2;
+	protected Piece R3;
+	protected Piece R4;
+	protected Piece R5;
+	protected Piece R6;
+	protected Piece R7;
+	protected Piece R8;
+	protected Piece R9;
+	protected Piece R10;
+	protected Piece R11;
+	protected Piece R12;
 	
-	private Piece B1;
-	private Piece B2;
-	private Piece B3;
-	private Piece B4;
-	private Piece B5;
-	private Piece B6;
-	private Piece B7;
-	private Piece B8;
-	private Piece B9;
-	private Piece B10;
-	private Piece B11;
-	private Piece B12;
+	protected Piece B1;
+	protected Piece B2;
+	protected Piece B3;
+	protected Piece B4;
+	protected Piece B5;
+	protected Piece B6;
+	protected Piece B7;
+	protected Piece B8;
+	protected Piece B9;
+	protected Piece B10;
+	protected Piece B11;
+	protected Piece B12;
 	/**
 	 * This is a default constructor for a game
 	 */
@@ -101,10 +103,48 @@ public class Game extends JFrame{
 		title.setBounds(200,35,200,50);
 		title.setText("<html><h1>CHECKERS!!!</h1></html>");
 	}
+	public int xPixelToGrid(int p) {
+		int result = (p - 25) / 60;
+		return result;
+	}
+	
+	/**
+	 * Determines which block of the grid a y-coordinate pixel is located in
+	 * @param - p the pixel to be converted into a grid number
+	 * @return - the y-coordinate of the grid the pixel is in
+	 */
+	public int yPixelToGrid(int p) {
+		int result = (p - 125) / 60;
+		return result;
+	}
 
+	public void mouseClicked(MouseEvent me) {
+		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
+		int x = me.getX();
+		int xCoord = xPixelToGrid(x);
+		System.out.println(x + " " + xCoord);
+		int y = me.getY();
+		int yCoord = yPixelToGrid(y);
+		System.out.println(y + " " + yCoord);
+		
+		//intantiate c1 = Click(xCoord, yCoord)
+	}
+
+
+	public void mouseEntered(MouseEvent me) {
+	}
+	public void mouseExited(MouseEvent me) {	
+	}
+
+	public void mousePressed(MouseEvent me) {
+	}
+
+	public void mouseReleased(MouseEvent me) {
+	}
 	/**
 	 * This method runs the game as long as there are moves available
 	 */
+	
 	public void gameLoop() {
 		boolean playGame = true;
 		//most of the code in this method will end up inside this loop
@@ -113,6 +153,7 @@ public class Game extends JFrame{
 			//playGame = !gameBoard.hasWon(currPlayer);
 		//}
 		frame = new JFrame("Checkers Game");
+		frame.addMouseListener(this);
 		frame.setBounds(0,0,545,700);
 		//frame.setBackground(Color.WHITE);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
