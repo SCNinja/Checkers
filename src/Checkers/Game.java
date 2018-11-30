@@ -203,14 +203,16 @@ public class Game extends JFrame implements MouseListener{
 					frame.add(popup);
 					
 					break;
+					
 				}
 				clickCount = 0;
+				break;
+				
 			}
-			break;
+			
+			frame.setVisible(true);
 		}
-		
-		frame.setVisible(true);
-	}
+	
 	public void displayBoardGUI() {
 		
 		board = new JPanel() 	
