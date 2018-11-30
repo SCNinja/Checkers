@@ -124,7 +124,7 @@ public class Game extends JFrame implements MouseListener{
 	public int xPixelToGrid(int xPixel)
 	{
 		
-		if(xPixel > 25 && xPixel < 85) {
+		/*if(xPixel > 25 && xPixel < 85) {
 			return 0;
 		}
 		else if(xPixel > 85 && xPixel < 145) {
@@ -148,7 +148,8 @@ public class Game extends JFrame implements MouseListener{
 		else if (xPixel > 445 && xPixel < 505) {
 			return 7;
 		}
-		return 100;
+		return 100;*/
+		return (xPixel-25)/60;
 	}
 	
 	/**
@@ -159,7 +160,7 @@ public class Game extends JFrame implements MouseListener{
 	//This method returns the piece that is in the parameters designated by the values in the for loop
 	public int yPixelToGrid(int yPixel)
 	{
-		if(yPixel > 125 && yPixel < 185) {
+		/*if(yPixel > 125 && yPixel < 185) {
 			return 0;
 		}
 		else if(yPixel > 185 && yPixel < 245) {
@@ -183,7 +184,8 @@ public class Game extends JFrame implements MouseListener{
 		else if (yPixel > 545 && yPixel < 605) {
 			return 7;
 		}
-		return 100;
+		return 100;*/
+		return (yPixel-125)/60;
 	}
 	//Created a new MouseEvent that gets both the x and y coordinates 
 	public void mouseClicked(MouseEvent me) {
