@@ -39,6 +39,8 @@ class BoardTest {
 		Assert.assertEquals(2, grid);	
 	}
 	
+	//Valid movesets
+	
 	@Test
 	public void redMoveValidLeft() {
 		Player player = new Player(Color.RED);
