@@ -3,6 +3,7 @@ package Checkers;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.awt.event.MouseListener;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 /**
  * This class creates a Checkers board, checks to see if the player can make a
@@ -53,6 +54,7 @@ public class Board extends Game implements MouseListener {
 	public Board() {
 		//Setting the new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
+		Piece whiteSpace = new Piece (0,0,0,Color.WHITE); //filling in a spot where there are no pieces eventually
 		pieces[0][0] = R1;
 		pieces[2][0] = R1;
 		//Will eventually be commented out?
