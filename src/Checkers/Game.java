@@ -33,6 +33,7 @@ public class Game extends JFrame implements MouseListener{
 	private Player p2;
 	private JFrame frame;
 	private JPanel board;
+	private JPanel popup;
 	private LinkedList list1;
 	private JButton finishTurn;
 	private JLabel title;
@@ -114,8 +115,8 @@ public class Game extends JFrame implements MouseListener{
 		title.setText("<html><h1>CHECKERS!!!</h1></html>");
 		
 		pop = new JLabel("Turn Error");
-		pop.setBounds(200,35,200,50);
-		pop.setText("<html><h1>You have entered an incorrect move,\nplease try again");
+		pop.setBounds(123,200,300,100);
+		pop.setText("You have entered an incorrect move, please try again");
 	}
 	/**
 	 * Determines which block of the grid an x-coordinate pixel is located in
@@ -141,6 +142,7 @@ public class Game extends JFrame implements MouseListener{
 	//Created a new MouseEvent that gets both the x and y coordinates 
 	public void mouseClicked(MouseEvent me) {
 		clickCount++;
+		displayBoardGUI();
 		int x = me.getX();
 		int xCoord = xPixelToGrid(x);
 		System.out.println(x + " " + xCoord);
@@ -154,6 +156,10 @@ public class Game extends JFrame implements MouseListener{
 		else if (clickCount == 2) {
 			c2 = new Click (xCoord, yCoord);
 		}
+		else {
+			
+		}
+		
 	}
 	//Moved all from Board class, Empty methods so Java doesn't yell at us (and bc we don't need them)
 	public void mouseEntered(MouseEvent me) {
@@ -182,14 +188,31 @@ public class Game extends JFrame implements MouseListener{
 		//first need to get their initial move
 		while(!gB.hasWon(currPlayer)) {
 			//get move, valididate move, repeat till valid
-			while(gB.valid(currPlayer,c1, c2 ) == false) {
+			displayBoardGUI();
+	
+				while(gB.valid(currPlayer,c1, c2 ) == false) {
+					//message that your click was wrong
+					popup = new JPanel() 
+					{
+						public void paintComponent(Graphics g) {
+							g.setColor(Color.WHITE);
+							g.fillRect(98, 0, 350, 20);
+						}
+					};
+					popup.add(pop);
+					frame.add(popup);
+					
+					break;
+					
+				}
+				clickCount = 0;
+				break;
 				
 			}
+			
+			frame.setVisible(true);
 		}
-		
-		displayBoardGUI();
-		frame.setVisible(true);
-	}
+	
 	public void displayBoardGUI() {
 		
 		board = new JPanel() 	
