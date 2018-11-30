@@ -99,6 +99,7 @@ public class Piece {
 	
 	public void draw(Graphics g, Color c) {
 		g.setColor(c);
+		System.out.println("xLocation "+yLoc+" "+"yLocation "+xLoc);
 		g.fillOval(xLoc*60+30,yLoc*60+130,2*radius, 2*radius);
 	}
 	

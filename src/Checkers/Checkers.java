@@ -1,4 +1,7 @@
 package Checkers;
+
+import java.awt.Color;
+
 /**
  * This class makes a game and runs it
  * 
@@ -8,11 +11,10 @@ package Checkers;
  */
 public class Checkers {
 	public static void main(String[]args) {
+		Board gameBoard = new Board();
 		Game g = new Game();
 		//initial board
-		Board gameBoard = new Board();
 		g.gameLoop(gameBoard);
-		
 		 //Display for an option of a text based board. This is not where is goes but I just created it here because I'm not sure where it will
 		 //accurately end up
 		/*char [][] list = new char [8][8];

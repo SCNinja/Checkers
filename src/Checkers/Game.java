@@ -1,6 +1,7 @@
 package Checkers;
 
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +27,6 @@ import java.awt.event.MouseListener;
  */
 public class Game extends JFrame implements MouseListener{
 	
-	private boolean endTurn;
 	private Board gameBoard;
 	private Player currPlayer;
 	private Player p1;
@@ -42,6 +42,7 @@ public class Game extends JFrame implements MouseListener{
 	protected int clickCount;
 	private Click c1;
 	private Click c2;
+	private int counter = 0;
 	
 	//made each piece protected to we can call them from the Piece class...?
 	protected Piece R1;
@@ -69,6 +70,19 @@ public class Game extends JFrame implements MouseListener{
 	protected Piece B10;
 	protected Piece B11;
 	protected Piece B12;
+	
+	protected Piece Wh1;
+	protected Piece Wh2;
+	protected Piece Wh3;
+	protected Piece Wh4;
+	protected Piece Wh5;
+	protected Piece Wh6;
+	protected Piece Wh7;
+	protected Piece Wh8;
+
+
+	
+	private boolean validMove;
 	/**
 	 * This is a default constructor for a game
 	 */
@@ -76,6 +90,8 @@ public class Game extends JFrame implements MouseListener{
 		p1 = new Player(Color.RED);
 		p2 = new Player(Color.BLACK);
 		currPlayer = p1;
+		c1 = new Click(0,0);
+		c2 = new Click(0,0);
 		//initial pieces
 		//************************in pixels needs to be in coordinates
 		R1 = new Piece(0,0,25,Color.RED);
@@ -90,11 +106,21 @@ public class Game extends JFrame implements MouseListener{
 		R10 = new Piece(2,2,25,Color.RED);
 		R11 = new Piece(4,2,25,Color.RED);
 		R12 = new Piece(6,2,25,Color.RED);
-		//initial pieces
+		
+		Wh1 = new Piece(1,3,0,Color.WHITE);
+		Wh2 = new Piece(3,3,0,Color.WHITE);
+		Wh3 = new Piece(5,3,0,Color.WHITE);
+		Wh4 = new Piece(7,3,0,Color.WHITE);
+		Wh5 = new Piece(0,4,0,Color.WHITE);
+		Wh6 = new Piece(2,4,0,Color.WHITE);
+		Wh7 = new Piece(4,4,0,Color.WHITE);
+		Wh8 = new Piece(6,4,0,Color.WHITE);
+		
+		//initial piece
 		B1 = new Piece(1,5,25,Color.BLACK);
 		B2 = new Piece(3,5,25,Color.BLACK);
 		B3 = new Piece(5,5,25,Color.BLACK);
-		B4 = new Piece(7,5,25,Color.BLACK);
+		B4 = new Piece(5,5,25,Color.BLACK);
 		B5 = new Piece(0,6,25,Color.BLACK);
 		B6 = new Piece(2,6,25,Color.BLACK);
 		B7 = new Piece(4,6,25,Color.BLACK);
@@ -104,11 +130,7 @@ public class Game extends JFrame implements MouseListener{
 		B11 = new Piece(5,7,25,Color.BLACK);
 		B12 = new Piece(7,7,25,Color.BLACK);
 		
-		finishTurn = new JButton("End Turn");
-		finishTurn.setBounds(355,615,150,40);
-		finishTurn.setLocation(355,615);
-		finishTurn.setBackground(Color.BLACK);
-		finishTurn.setForeground(Color.WHITE);
+
 		
 		title = new JLabel("Checkers!!!");
 		title.setBounds(200,35,200,50);
@@ -117,6 +139,8 @@ public class Game extends JFrame implements MouseListener{
 		pop = new JLabel("Turn Error");
 		pop.setBounds(123,200,300,100);
 		pop.setText("You have entered an incorrect move, please try again");
+		
+		clickCount = 1;
 	}
 	/**
 	 * Determines which block of the grid an x-coordinate pixel is located in
@@ -124,7 +148,7 @@ public class Game extends JFrame implements MouseListener{
 	 * @return - the x-coordinate of the grid the pixel is in
 	 */
 	//This method returns the piece that is in the parameters designated by the values in the for loop
-	public int xPixelToGrid(int xPixel)
+	public int xPixelToGridCol(int xPixel)
 	{
 		return (xPixel-25)/60;
 	}
@@ -135,31 +159,12 @@ public class Game extends JFrame implements MouseListener{
 	 * @return - the y-coordinate of the grid the pixel is in
 	 */
 	//This method returns the piece that is in the parameters designated by the values in the for loop
-	public int yPixelToGrid(int yPixel)
+	public int yPixelToGridRow(int yPixel)
 	{
 		return (yPixel-125)/60;
 	}
 	//Created a new MouseEvent that gets both the x and y coordinates 
-	public void mouseClicked(MouseEvent me) {
-		clickCount++;
-		displayBoardGUI();
-		int x = me.getX();
-		int xCoord = xPixelToGrid(x);
-		System.out.println(x + " " + xCoord);
-		int y = me.getY();
-		int yCoord = yPixelToGrid(y);
-		System.out.println(y + " " + yCoord);
-		//Created loops for clicks that take in the x and y coordinates
-		if (clickCount == 1) {
-			c1 = new Click (xCoord, yCoord);
-		}
-		else if (clickCount == 2) {
-			c2 = new Click (xCoord, yCoord);
-		}
-		else {
-			
-		}
-		
+	public void mouseClicked(MouseEvent me) {			
 	}
 	//Moved all from Board class, Empty methods so Java doesn't yell at us (and bc we don't need them)
 	public void mouseEntered(MouseEvent me) {
@@ -169,12 +174,103 @@ public class Game extends JFrame implements MouseListener{
 	public void mousePressed(MouseEvent me) {
 	}
 	public void mouseReleased(MouseEvent me) {
+		if(!gameBoard.hasWon(currPlayer)) {
+			System.out.println("+++++++++++++++"+clickCount);
+			displayBoardGUI();
+			validMove = false;
+			
+			int x = me.getX();
+			int y = me.getY();
+			int yCoord = yPixelToGridRow(y);
+			int xCoord = xPixelToGridCol(x);
+			System.out.println(x + "???????????????????????????" + xCoord);
+			System.out.println(y + " ??????????????????????????" + yCoord);
+			
+			//Created loops for clicks that take in the x and y coordinates
+			if (clickCount == 1) {
+				c1.setX(xCoord);
+				c1.setY(yCoord);
+			}
+			else if (clickCount == 2) {
+				c2.setX(xCoord);
+				c2.setY(yCoord);
+				//if (gameBoard.valid(currPlayer, c1, c2)) {
+					//System.out.println("*******************************");
+					//validMove = true;
+				//}
+				validMove = true;
+				//switchPieces();
+			}
+			System.out.println("+++++++++++++++"+clickCount);
+			if(validMove == false && clickCount >=2) {
+				popup = new JPanel() 
+				{
+					public void paintComponent(Graphics g) {
+						g.setColor(Color.WHITE);
+						g.fillRect(98, 0, 350, 20);
+					}
+				};
+				popup.add(pop);
+				frame.add(popup);
+				clickCount = 1;
+				System.out.println("invalid");
+				System.out.println(c1.getX()+" "+c1.getY());
+				System.out.println(c2.getX()+" "+c2.getY());
+			}
+			else if (validMove == true && clickCount >=2) {
+				System.out.println("should switch");
+				switchPieces();
+				displayBoardGUI();
+			}
+			clickCount++;
+		}
+	}
+	public void switchPieces() {
+		//works with the hard code commented out below but not the code left uncommented
+		int tempX = c1.getX();
+		int tempY = c1.getY();
+		
+		System.out.println(tempX+"--------------------"+tempY);
+		
+		int tempX2 = c2.getX();
+		int tempY2 = c2.getY();
+		
+		System.out.println(tempX2+"--------------------"+tempY2);
+		
+		gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX2);
+		gameBoard.pieces[c1.getX()][c1.getY()].setY(tempY2);
+		gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX);
+		gameBoard.pieces[c1.getX()][c1.getY()].setY(tempY);
+		
+		//gameBoard.pieces[tempX][tempY] = p1;
+		//gameBoard.pieces[tempX2][tempY2] = p2;
+		
+		/*gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX2);
+		gameBoard.pieces[c1.getX()][c1.getY()].setY(tempY2);
+		gameBoard.pieces[c2.getX()][c2.getY()].setX(tempX);
+		gameBoard.pieces[c2.getX()][c2.getY()].setY(tempY);
+		
+		gameBoard.pieces[c1.getX()][c2.getY] = 
+		
+		Piece temp = gameBoard.pieces[c1.getX()][c1.getY()];
+		gameBoard.pieces[c1.getX()][c2.getY()] = gameBoard.pieces[c2.getX()][c2.getY()];
+		gameBoard.pieces[c2.getX()][c2.getY()] = temp;
+		System.out.println("COUNTER: "+counter);
+		displayBoardGUI();
+		System.out.println("COUNTER: "+counter);
+		int tempx = 4;
+		int tempy = 2;
+		R11.setX(Wh2.getXLoc());
+		R11.setY(Wh2.getYLoc());
+		Wh2.setX(tempx);
+		Wh2.setY(tempy);*/
 	}
 	/**
 	 * This method runs the game as long as there are moves available
+	 * @throws InterruptedException 
 	 */
-	
 	public void gameLoop(Board gB) {
+		gameBoard = gB;
 		boolean playGame = true;
 		//most of the code in this method will end up inside this loop
 		//while (playGame = true) {
@@ -185,36 +281,14 @@ public class Game extends JFrame implements MouseListener{
 		frame.setBounds(0,0,545,700);
 		//frame.setBackground(Color.WHITE);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		displayBoardGUI();
 		//first need to get their initial move
-		while(!gB.hasWon(currPlayer)) {
-			//get move, valididate move, repeat till valid
-			displayBoardGUI();
-	
-				while(gB.valid(currPlayer,c1, c2 ) == false) {
-					//message that your click was wrong
-					popup = new JPanel() 
-					{
-						public void paintComponent(Graphics g) {
-							g.setColor(Color.WHITE);
-							g.fillRect(98, 0, 350, 20);
-						}
-					};
-					popup.add(pop);
-					frame.add(popup);
-					
-					break;
-					
-				}
-				clickCount = 0;
-				break;
-				
-			}
+		
 			
-			frame.setVisible(true);
 		}
 	
 	public void displayBoardGUI() {
-		
+		counter++;
 		board = new JPanel() 	
 		{
 			public void paintComponent(Graphics g) {
@@ -249,7 +323,18 @@ public class Game extends JFrame implements MouseListener{
 				R9.draw(g,R9.getColor());
 				R10.draw(g,R10.getColor());
 				R11.draw(g,R11.getColor());
+				System.out.println("CLICK 1'S PIECE X "+R11.getXLoc());
+				System.out.println("CLICK 1'S PIECE X "+R11.getYLoc());
 				R12.draw(g,R12.getColor());
+				
+				Wh1.draw(g, Wh1.getColor());
+				Wh2.draw(g, Wh1.getColor());
+				Wh3.draw(g, Wh1.getColor());
+				Wh4.draw(g, Wh1.getColor());
+				Wh5.draw(g, Wh1.getColor());
+				Wh6.draw(g, Wh1.getColor());
+				Wh7.draw(g, Wh1.getColor());
+				Wh8.draw(g, Wh1.getColor());
 				
 				B1.draw(g,B1.getColor());
 				B2.draw(g,B2.getColor());
@@ -264,16 +349,18 @@ public class Game extends JFrame implements MouseListener{
 				B11.draw(g,B11.getColor());
 				B12.draw(g,B12.getColor());
 				
-				board.add(finishTurn);
 				board.add(title);
+				
 			}
 			
 		};
 		//Added the mouseListener onto the JPanel so it registers the clicks as opposed
 		//to adding it to the board itself.
-		board.addMouseListener(this);
 		
+		board.addMouseListener(this);
 		frame.add(board);
+		frame.setVisible(true);
+		
 	}
 	/**
 	 * This method adds each valid move to the linkedList while checking if the move
