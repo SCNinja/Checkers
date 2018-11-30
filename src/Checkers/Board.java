@@ -130,13 +130,13 @@ public class Board extends Game implements MouseListener {
 	 * @param p - the current player
 	 */
 	public boolean valid(Player p, Click c1, Click c2) {
-		Piece p1 = pieces[c1.getX()][c1.getY()];
+		Piece p1 = this.pieces[c1.getX()][c1.getY()];
 		Piece p2;
 		Piece p3;
 		if (p1.getColor().equals(p.getColor())) {
 			if (p.getColor().equals(Color.RED)){
-				p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
-				p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
+				p2 = this.pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
+				p3 = this.pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
 				if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc() && p2.getColor().equals(Color.WHITE))) {
 					return true;
 				}
@@ -145,8 +145,8 @@ public class Board extends Game implements MouseListener {
 				}
 			}
 			if (p.getColor().equals(Color.BLACK)) {
-				p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
-				p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
+				p2 = this.pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
+				p3 = this.pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
 				if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc() && p2.getColor().equals(Color.WHITE))) {
 					return true;
 				}
