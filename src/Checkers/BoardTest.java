@@ -40,7 +40,7 @@ class BoardTest {
 	}
 	
 	@Test
-	public void firstMoveValid() {
+	public void firstMoveNotValid() {
 		Player player = new Player(Color.BLACK);
 		Click click1 = new Click(80, 430);
 		Click click2 = new Click(80, 590);
