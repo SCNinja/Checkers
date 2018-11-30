@@ -39,7 +39,7 @@ class BoardTest {
 		Assert.assertEquals(2, grid);	
 	}
 	
-	//Valid movesets
+	//Valid move tests
 	
 	@Test
 	public void redMoveValidLeft() {
@@ -80,8 +80,6 @@ class BoardTest {
 		boolean valid = board.valid(player, click1, click2);
 		Assert.assertEquals(true, valid);
 	}
-	
-	
 	
 	
 	/* IDEAS FOR TESTS
