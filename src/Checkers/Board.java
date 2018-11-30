@@ -145,6 +145,7 @@ public class Board extends Game implements MouseListener {
 			else
 				return false;
 			//test comment
+			//a
 		}
 		if (p.getColor().equals(Color.BLACK)) {
 			p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
