@@ -84,7 +84,6 @@ class BoardTest {
 	
 	
 	
-	
 	/* IDEAS FOR TESTS
 	 * If a click is on the edge of a board space, make sure it registers and either
 	 * doesn't do anything to the valid move list. 
