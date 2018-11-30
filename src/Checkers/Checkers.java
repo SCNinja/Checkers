@@ -1,6 +1,7 @@
 package Checkers;
 
 import java.awt.Color;
+import java.util.Scanner;
 
 /**
  * This class makes a game and runs it
@@ -11,10 +12,23 @@ import java.awt.Color;
  */
 public class Checkers {
 	public static void main(String[]args) {
-		Board gameBoard = new Board();
-		Game g = new Game();
-		//initial board
-		g.gameLoop(gameBoard);
+		System.out.println("Please Enter whether you would like to play with a GUI or a textbased display: "
+				+ "\nThe GUI is not funtional but will react to hard code and the text inteface works. "
+				+ "\nIf you would like to run the text interfrace type TEXT if you would like to see the progress of the GUI type GUI");
+		Scanner scnr = new Scanner(System.in);
+		String answer = scnr .nextLine();
+		if (answer.equals("GUI")) {
+			Board gameBoard = new Board();
+			Game g = new Game();
+			//initial board
+			g.gameLoop(gameBoard);
+		}
+		else if (answer.equals("TEXT")) {
+			BoardText gameBoard = new BoardText();
+			GameText g = new GameText();
+			//initial board
+			g.gameLoop(gameBoard);
+		}
 		 //Display for an option of a text based board. This is not where is goes but I just created it here because I'm not sure where it will
 		 //accurately end up
 		/*char [][] list = new char [8][8];
