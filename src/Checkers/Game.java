@@ -72,7 +72,9 @@ public class Game extends JFrame implements MouseListener{
 	 * This is a default constructor for a game
 	 */
 	public Game() {
-		currPlayer = new Player();
+		p1 = new Player(Color.RED);
+		p2 = new Player(Color.BLACK);
+		currPlayer = p1;
 		//initial pieces
 		//************************in pixels needs to be in coordinates
 		R1 = new Piece(0,0,25,Color.RED);

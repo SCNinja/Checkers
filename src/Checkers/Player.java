@@ -1,5 +1,8 @@
 package Checkers;
-	/**
+
+import java.awt.Color;
+
+/**
 	 * This class stores information about a player
 	 * 
 	 * @author Moriah Krause, Jonathon Lannon, Meagan McBurney, Paul Hodge, and Sara
@@ -10,12 +13,13 @@ package Checkers;
 public class Player {
 	private int numPieces;
 	//private int numKings;
-	//private Color c;
+	private Color color;
 	
 	/**
 	 * create a new player and sets the number of pieces to 12
 	 */
-	public Player() {
+	public Player(Color c) {
+		color = c;
 		numPieces = 12;
 	}
 	
