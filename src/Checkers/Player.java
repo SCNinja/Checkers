@@ -38,6 +38,10 @@ public class Player {
 		numPieces--;
 	}
 	
+	public Color getColor() {
+		return color;
+	}
+	
 	/*
 	 * public int getKings(){
 	 * 
