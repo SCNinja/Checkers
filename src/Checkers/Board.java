@@ -110,16 +110,21 @@ public class Board extends Game {
 	 */
 	
 	public boolean valid(Player p, Click c1, Click c2) {
-		Piece p1 = pieces[c1.getX()][c1.getY()];
+		Piece p1 = this.pieces[c1.getX()][c1.getY()];
 		Piece p2;
 		Piece p3;
 		
 		if (p1.getColor().equals(p.getColor())) {
 			if (p.getColor().equals(Color.RED)){
+<<<<<<< HEAD
 				p2 = pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
 				System.out.println(p1.getXLoc() - 1+"OKAY????? "+p1.getYLoc() + 1);
 				p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
 				System.out.println((p1.getXLoc() - 1)+" OKAY????????"+(p1.getYLoc()- 1));
+=======
+				p2 = this.pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
+				p3 = this.pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
+>>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 				if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc() && p2.getColor().equals(Color.WHITE))) {
 					return true;
 				}
@@ -128,10 +133,15 @@ public class Board extends Game {
 				}
 			}
 			if (p.getColor().equals(Color.BLACK)) {
+<<<<<<< HEAD
 				p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
 				System.out.println((p1.getXLoc() + 1)+"OKAY!!!!!!!!!!!!!!!1"+(p1.getYLoc() - 1));
 				p3 = pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
 				System.out.println((p1.getXLoc() + 1)+" OKAY!!!!!!!!!!!!!!!"+(p1.getYLoc()+ 1));
+=======
+				p2 = this.pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
+				p3 = this.pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
+>>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 				if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc() && p2.getColor().equals(Color.WHITE))) {
 					return true;
 				}
