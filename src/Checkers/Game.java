@@ -27,13 +27,14 @@ import java.awt.event.MouseListener;
 public class Game extends JFrame implements MouseListener{
 	
 	private boolean endTurn;
-	//private Board gameBoard;
+	private Board gameBoard;
 	private Player currPlayer;	
 	private JFrame frame;
 	private JPanel board;
 	private LinkedList list1;
 	private JButton finishTurn;
 	private JLabel title;
+	private JLabel pop;
 	//Made clicks private in this class because this is where we will eventually call them
 	protected int clickCount;
 	private Click c1;
@@ -69,8 +70,7 @@ public class Game extends JFrame implements MouseListener{
 	 * This is a default constructor for a game
 	 */
 	public Game() {
-		//initial board
-		//gameBoard = new Board();
+		currPlayer = new Player();
 		//initial pieces
 		//************************in pixels needs to be in coordinates
 		R1 = new Piece(0,0,25,Color.RED);
@@ -108,10 +108,45 @@ public class Game extends JFrame implements MouseListener{
 		title = new JLabel("Checkers!!!");
 		title.setBounds(200,35,200,50);
 		title.setText("<html><h1>CHECKERS!!!</h1></html>");
+		
+		pop = new JLabel("Turn Error");
+		pop.setBounds(200,35,200,50);
+		pop.setText("<html><h1>You have entered an incorrect move,\nplease try again");
 	}
-	public int xPixelToGrid(int p) {
-		int result = (p - 25) / 60;
-		return result;
+	/**
+	 * Determines which block of the grid an x-coordinate pixel is located in
+	 * @param - p the pixel to be converted into a grid number
+	 * @return - the x-coordinate of the grid the pixel is in
+	 */
+	//This method returns the piece that is in the parameters designated by the values in the for loop
+	public int xPixelToGrid(int xPixel)
+	{
+		
+		if(xPixel > 25 && xPixel < 85) {
+			return 0;
+		}
+		else if(xPixel > 85 && xPixel < 145) {
+			return 1;
+		}
+		else if (xPixel > 145 && xPixel < 205) {
+			return 2;
+		}
+		else if (xPixel > 205 && xPixel < 265) {
+			return 3;
+		}
+		else if (xPixel > 265 && xPixel < 325) {
+			return 4;
+		}
+		else if (xPixel > 325 && xPixel < 385) {
+			return 5;
+		}
+		else if (xPixel > 385 && xPixel < 445) {
+			return 6;
+		}
+		else if (xPixel > 445 && xPixel < 505) {
+			return 7;
+		}
+		return 100;
 	}
 	
 	/**
@@ -119,13 +154,38 @@ public class Game extends JFrame implements MouseListener{
 	 * @param - p the pixel to be converted into a grid number
 	 * @return - the y-coordinate of the grid the pixel is in
 	 */
-	public int yPixelToGrid(int p) {
-		int result = (p - 125) / 60;
-		return result;
+	//This method returns the piece that is in the parameters designated by the values in the for loop
+	public int yPixelToGrid(int yPixel)
+	{
+		if(yPixel > 125 && yPixel < 185) {
+			return 0;
+		}
+		else if(yPixel > 185 && yPixel < 245) {
+			return 1;
+		}
+		else if (yPixel > 245 && yPixel < 305) {
+			return 2;
+		}
+		else if (yPixel > 305 && yPixel < 365) {
+			return 3;
+		}
+		else if (yPixel > 365 && yPixel < 425) {
+			return 4;
+		}
+		else if (yPixel > 425 && yPixel < 485) {
+			return 5;
+		}
+		else if (yPixel > 485 && yPixel < 545) {
+			return 6;
+		}
+		else if (yPixel > 545 && yPixel < 605) {
+			return 7;
+		}
+		return 100;
 	}
 	//Created a new MouseEvent that gets both the x and y coordinates 
 	public void mouseClicked(MouseEvent me) {
-		System.out.println("Mouse was clicked " + me.getClickCount() + " times.");
+		clickCount++;
 		int x = me.getX();
 		int xCoord = xPixelToGrid(x);
 		System.out.println(x + " " + xCoord);
@@ -153,7 +213,7 @@ public class Game extends JFrame implements MouseListener{
 	 * This method runs the game as long as there are moves available
 	 */
 	
-	public void gameLoop() {
+	public void gameLoop(Board gB) {
 		boolean playGame = true;
 		//most of the code in this method will end up inside this loop
 		//while (playGame = true) {
@@ -161,10 +221,22 @@ public class Game extends JFrame implements MouseListener{
 			//playGame = !gameBoard.hasWon(currPlayer);
 		//}
 		frame = new JFrame("Checkers Game");
-		
 		frame.setBounds(0,0,545,700);
 		//frame.setBackground(Color.WHITE);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//first need to get their initial move
+		while(!gB.hasWon(currPlayer)) {
+			//get move, valididate move, repeat till valid
+			while(gB.valid(currPlayer,c1, c2 ) == false) {
+				
+			}
+		}
+		
+		displayBoardGUI();
+		frame.setVisible(true);
+	}
+	public void displayBoardGUI() {
+		
 		board = new JPanel() 	
 		{
 			public void paintComponent(Graphics g) {
@@ -224,10 +296,7 @@ public class Game extends JFrame implements MouseListener{
 		board.addMouseListener(this);
 		
 		frame.add(board);
-		
-		frame.setVisible(true);
 	}
-
 	/**
 	 * This method adds each valid move to the linkedList while checking if the move
 	 * is valid

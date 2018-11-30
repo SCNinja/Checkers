@@ -9,7 +9,9 @@ package Checkers;
 public class Checkers {
 	public static void main(String[]args) {
 		Game g = new Game();
-		g.gameLoop();
+		//initial board
+		Board gameBoard = new Board();
+		g.gameLoop(gameBoard);
 		/*
 		 * Display for an option of a text based board. This is not where is goes but I just created it here because I'm not sure where it will
 		 * accurately end up

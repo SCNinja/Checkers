@@ -70,87 +70,13 @@ public class Board extends Game implements MouseListener {
 	 * checks for a valid move
 	 * @param p - the current player
 	 */
-	public void play(Player p) {
-		//Commenting this out for tests sake.
-		
-		//If x and y coordinates of click are inside the board.
-		/*if((xCoords.get(0) >= 25) && (xCoords.get(0) <= 505) &&
-				(yCoords.get(0) <= 125) && (yCoords.get(0) >= 605))
-		{
-			
-		}*/
+	public boolean valid(Player p, Click c1, Click c2) {
+		//for c1, check they clicked on one of their own pieces
+		//for c2, check they clicked on a valid spot to move (now that is just diagonal)
+		return(true);
 	}
 	
-	/**
-	 * Determines which block of the grid an x-coordinate pixel is located in
-	 * @param - p the pixel to be converted into a grid number
-	 * @return - the x-coordinate of the grid the pixel is in
-	 */
-	//This method returns the piece that is in the parameters designated by the values in the for loop
-	public int xPixelToGrid(int xPixel)
-	{
-		
-		if(xPixel > 25 && xPixel < 85) {
-			return 0;
-		}
-		else if(xPixel > 85 && xPixel < 145) {
-			return 1;
-		}
-		else if (xPixel > 145 && xPixel < 205) {
-			return 2;
-		}
-		else if (xPixel > 205 && xPixel < 265) {
-			return 3;
-		}
-		else if (xPixel > 265 && xPixel < 325) {
-			return 4;
-		}
-		else if (xPixel > 325 && xPixel < 385) {
-			return 5;
-		}
-		else if (xPixel > 385 && xPixel < 445) {
-			return 6;
-		}
-		else if (xPixel > 445 && xPixel < 505) {
-			return 7;
-		}
-		return 100;
-	}
 	
-	/**
-	 * Determines which block of the grid a y-coordinate pixel is located in
-	 * @param - p the pixel to be converted into a grid number
-	 * @return - the y-coordinate of the grid the pixel is in
-	 */
-	//This method returns the piece that is in the parameters designated by the values in the for loop
-	public int yPixelToGrid(int yPixel)
-	{
-		if(yPixel > 125 && yPixel < 185) {
-			return 0;
-		}
-		else if(yPixel > 185 && yPixel < 245) {
-			return 1;
-		}
-		else if (yPixel > 245 && yPixel < 305) {
-			return 2;
-		}
-		else if (yPixel > 305 && yPixel < 365) {
-			return 3;
-		}
-		else if (yPixel > 365 && yPixel < 425) {
-			return 4;
-		}
-		else if (yPixel > 425 && yPixel < 485) {
-			return 5;
-		}
-		else if (yPixel > 485 && yPixel < 545) {
-			return 6;
-		}
-		else if (yPixel > 545 && yPixel < 605) {
-			return 7;
-		}
-		return 100;
-	}
 
 	/**
 	 * checks for a winner after their turn
@@ -158,6 +84,14 @@ public class Board extends Game implements MouseListener {
 	 * @return - true if the current player won(if the other player has no more pieces) and false otherwise
 	 */
 	public boolean hasWon(Player p) {
-		return (false);
+		return(true);//to be commented out
+		/*if (p.getNumPieces()<=0) {
+			return true;
+		}
+		else
+		{
+			return false;
+		}*/
+			
 	}
 }
