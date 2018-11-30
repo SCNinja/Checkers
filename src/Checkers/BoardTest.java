@@ -23,22 +23,6 @@ class BoardTest {
 		Assert.assertEquals(true, hasWon);
 	}
 	
-	@Test
-	public void xPixelsToGrid() {
-		Board board = new Board();
-		int pixel = 86;
-		int grid = board.xPixelToGrid(pixel);
-		Assert.assertEquals(1, grid);	
-	}
-	
-	@Test
-	public void yPixelsToGrid() {
-		Board board = new Board();
-		int pixel = 186;
-		int grid = board.xPixelToGrid(pixel);
-		Assert.assertEquals(2, grid);	
-	}
-	
 	//Valid move tests
 	
 	@Test
