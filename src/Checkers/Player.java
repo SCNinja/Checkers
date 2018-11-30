@@ -21,7 +21,7 @@ public class Player {
 	public Player(Color c) {
 		color = c;
 		numPieces = 12;
-	}
+	} 
 	
 	/**
 	 * returns the current number of pieces for that player
