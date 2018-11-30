@@ -136,22 +136,22 @@ public class Board extends Game implements MouseListener {
 		if (!p1.getColor().equals(p.getColor()))
 			return false;
 		if (p.getColor().equals(Color.RED)){
-			p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
+			p2 = pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
 			p3 = pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
 			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc()))
 				return true;
-			else if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
+			if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
 				return true;
 			else
 				return false;
 			//test comment
 		}
 		if (p.getColor().equals(Color.BLACK)) {
-			p2 = pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
-			p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
+			p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
+			p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
 			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc()))
 				return true;
-			else if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
+			if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
 				return true;
 			else
 				return false;
