@@ -39,6 +39,16 @@ class BoardTest {
 		Assert.assertEquals(2, grid);	
 	}
 	
+	@Test
+	public void firstMoveValid() {
+		Player player = new Player(Color.BLACK);
+		Click click1 = new Click(80, 430);
+		Click click2 = new Click(80, 590);
+		Board board = new Board();
+		boolean valid = board.valid(player, click1, click2);
+		Assert.assertEquals(false, valid);
+	}
+	
 	/* IDEAS FOR TESTS
 	 * If a click is on the edge of a board space, make sure it registers and either
 	 * doesn't do anything to the valid move list. 
