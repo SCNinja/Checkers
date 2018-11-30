@@ -54,6 +54,7 @@ public class Board extends Game implements MouseListener {
 		//Setting the new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
 		pieces[0][0] = R1;
+		pieces[2][0] = R1;
 		//Will eventually be commented out?
 		//this.xCoords = new LinkedList<>();
 		//this.yCoords = new LinkedList<>();
