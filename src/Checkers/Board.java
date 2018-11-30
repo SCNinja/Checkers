@@ -138,9 +138,9 @@ public class Board extends Game implements MouseListener {
 		if (p.getColor().equals(Color.RED)){
 			p2 = pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
 			p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
-			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc()))
+			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc() && p2.getColor().equals(Color.WHITE)))
 				return true;
-			if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
+			if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc() && p2.getColor().equals(Color.WHITE)))
 				return true;
 			else
 				return false;
@@ -150,17 +150,16 @@ public class Board extends Game implements MouseListener {
 		if (p.getColor().equals(Color.BLACK)) {
 			p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
 			p3 = pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
-			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc()))
+			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc() && p2.getColor().equals(Color.WHITE)))
 				return true;
-			if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
+			if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc() && p2.getColor().equals(Color.WHITE)))
 				return true;
 			else
 				return false;
 		}
-		
+		return false;
 		//for c1, check they clicked on one of their own pieces
 		//for c2, check they clicked on a valid spot to move (now that is just diagonal)
-		return(false);
 	}
 	
 	
