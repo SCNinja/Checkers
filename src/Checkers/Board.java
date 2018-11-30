@@ -51,7 +51,7 @@ public class Board extends Game implements MouseListener {
 	 */
 
 	public Board() {
-		//Setting the new Array to be 8 x 8
+		//Setting new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
 		pieces[0][0] = R1;
 		pieces[0][2] = R2;
