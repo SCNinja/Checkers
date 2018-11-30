@@ -130,29 +130,30 @@ public class Board extends Game implements MouseListener {
 	 */
 	public boolean valid(Player p, Click c1, Click c2) {
 		Piece p1 = pieces[c1.getX()][c1.getY()];
-		Piece p2 = pieces[c2.getX()][c2.getY()];
+		Piece p2;
 		Piece p3;
 		if (!p1.getColor().equals(p.getColor()))
 			return false;
 		if (p.getColor().equals(Color.RED)){
-			p3 = pieces[p2.getXLoc() + 1][p2.getYLoc() - 1];
-			if (p3.getColor().equals(Color.WHITE)) {
+			p2 = pieces[p1.getXLoc() + 1][p1.getYLoc() - 1];
+			p3 = pieces[p1.getXLoc() + 1][p1.getYLoc() + 1];
+			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc()))
 				return true;
-			}
-			else {
+			else if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
+				return true;
+			else
 				return false;
-			}
 		}
 		if (p.getColor().equals(Color.BLACK)) {
-			p3 = pieces[p2.getXLoc() - 1][p2.getYLoc() - 1];
-			if (p3.getColor().equals(Color.WHITE)) {
+			p2 = pieces[p1.getXLoc() - 1][p1.getYLoc() - 1];
+			p3 = pieces[p1.getXLoc() - 1][p1.getYLoc() + 1];
+			if ((c2.getX() == p2.getXLoc() && c2.getY() == p2.getYLoc()))
 				return true;
-			}
-			else {
+			else if ((c2.getX() == p3.getXLoc() && c2.getY() == p3.getYLoc()))
+				return true;
+			else
 				return false;
-			}
 		}
-		//end comment 1
 		
 		//for c1, check they clicked on one of their own pieces
 		//for c2, check they clicked on a valid spot to move (now that is just diagonal)
