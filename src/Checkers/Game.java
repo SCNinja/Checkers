@@ -28,7 +28,9 @@ public class Game extends JFrame implements MouseListener{
 	
 	private boolean endTurn;
 	private Board gameBoard;
-	private Player currPlayer;	
+	private Player currPlayer;
+	private Player p1;
+	private Player p2;
 	private JFrame frame;
 	private JPanel board;
 	private LinkedList list1;
