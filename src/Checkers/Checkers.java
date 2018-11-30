@@ -12,12 +12,12 @@ public class Checkers {
 		//initial board
 		Board gameBoard = new Board();
 		g.gameLoop(gameBoard);
-		/*
-		 * Display for an option of a text based board. This is not where is goes but I just created it here because I'm not sure where it will
-		 * accurately end up
-		char [][] list = new char [8][8];
+		
+		 //Display for an option of a text based board. This is not where is goes but I just created it here because I'm not sure where it will
+		 //accurately end up
+		/*char [][] list = new char [8][8];
 		list[0][0] = 'R';
-		list[0][2] = 'R';
+		//list[0][2] = 'R';
 		list[0][4] = 'R';
 		list[0][6] = 'R';
 		list[1][1] = 'R';

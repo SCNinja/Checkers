@@ -55,6 +55,7 @@ public class Board extends Game implements MouseListener {
 		//Setting new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
 		Piece whiteSpace = new Piece (0,0,0,Color.WHITE); //filling in a spot where there are no pieces
+		
 		pieces[0][0] = R1;
 		pieces[0][2] = R2;
 		pieces[0][4] = R3;
@@ -100,7 +101,7 @@ public class Board extends Game implements MouseListener {
 	public boolean valid(Player p, Click c1, Click c2) {
 		//for c1, check they clicked on one of their own pieces
 		//for c2, check they clicked on a valid spot to move (now that is just diagonal)
-		return(true);
+		return(false);
 	}
 	
 	
@@ -111,7 +112,7 @@ public class Board extends Game implements MouseListener {
 	 * @return - true if the current player won(if the other player has no more pieces) and false otherwise
 	 */
 	public boolean hasWon(Player p) {
-		return(true);//to be commented out
+		return(false);//to be commented out
 		/*if (p.getNumPieces()<=0) {
 			return true;
 		}
