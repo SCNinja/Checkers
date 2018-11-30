@@ -54,7 +54,7 @@ public class Board extends Game implements MouseListener {
 	public Board() {
 		//Setting new Array to be 8 x 8
 		this.pieces = new Piece [SIZE][SIZE];
-		Piece whiteSpace = new Piece (0,0,0,Color.WHITE); //filling in a spot where there are no pieces eventually
+		Piece whiteSpace = new Piece (0,0,0,Color.WHITE); //filling in a spot where there are no pieces
 		pieces[0][0] = R1;
 		pieces[0][2] = R2;
 		pieces[0][4] = R3;
