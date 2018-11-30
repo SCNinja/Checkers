@@ -1,6 +1,7 @@
 package Checkers;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
@@ -13,8 +14,8 @@ class BoardTest {
 	@Test
 	public void hasWon() {
 		Board board = new Board();
-		Player player = new Player();
-		Player winningPlayer = new Player();
+		Player player = new Player(Color.RED);
+		Player winningPlayer = new Player(Color.BLACK);
 		while(player.getNumPieces()>0) {
 			player.decrementNumPiece();
 		}
