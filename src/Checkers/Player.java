@@ -38,7 +38,7 @@ public class Player {
 		numPieces--;
 	}
 	
-	public Color getColor() {
+	public Color getColor() {//
 		return color;
 	}
 	
