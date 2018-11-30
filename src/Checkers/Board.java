@@ -3,6 +3,7 @@ package Checkers;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.awt.event.MouseListener;
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 /**
  * This class creates a Checkers board, checks to see if the player can make a
@@ -73,6 +74,31 @@ public class Board extends Game implements MouseListener {
 	 * @param p - the current player
 	 */
 	public boolean valid(Player p, Click c1, Click c2) {
+		Piece p1 = pieces[c1.getX()][c1.getY()];
+		Piece p2 = pieces[c2.getX()][c2.getY()];
+		Piece p3;
+		if (!p1.getColor().equals(p.getColor()))
+			return false;
+		if (p.getColor().equals(Color.RED)){
+			p3 = pieces[p2.getXLoc() + 1][p2.getYLoc() - 1];
+			if (p3.getColor().equals(Color.white)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		if (p.getColor().equals(Color.BLACK)) {
+			p3 = pieces[p2.getXLoc() - 1][p2.getYLoc() - 1];
+			if (p3.getColor().equals(Color.WHITE)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		//end comment 1
+		
 		//for c1, check they clicked on one of their own pieces
 		//for c2, check they clicked on a valid spot to move (now that is just diagonal)
 		return(true);
