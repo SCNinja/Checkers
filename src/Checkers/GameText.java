@@ -36,6 +36,18 @@ public class GameText {
 				row2  = scnr .nextInt();
 				col2 = scnr.nextInt();
 			}
+			char temp = gameBoard.pieces[row][col];
+			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
+			gameBoard.pieces[row2][col2] = temp;
+			
+			display();
+			if(currPlayer ==p1) {
+				currPlayer = p2;
+			}
+			else {
+				currPlayer = p1;
+			}
+			
 			
 			
 		}
