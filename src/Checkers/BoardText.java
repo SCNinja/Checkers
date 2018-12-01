@@ -42,7 +42,6 @@ public class BoardText {
 				if (pieces[i][j]==('B')||pieces[i][j]==('b')) {
 					black++;
 				}
-				
 			}
 		}
 		if(red==0) {
@@ -57,29 +56,150 @@ public class BoardText {
 	}
 	public int valid(Player p, int r, int c, int r2, int c2){
 		//in this case you will have to get the players color and then if it is red, the position of the array of 
-		//characters must have a value of r or R for the first input (r, c)
+		//characters must have a value of r or R for the first input (r, c) 
 		Color color = p.getColor();
+		if((r<0)||(r>7)||(c<0)||(c>7)||(r2<0)||(r2>7)||(c2<0)||(c2>7)) {
+			return(0);
+		}
 		if((color == Color.RED && (pieces[r][c] == 'R'))||
 				(color == Color.BLACK && (pieces[r][c] == 'b')))
 		{
-			if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
-			{
-				return 1;
+			if(color == Color.RED) {
+				if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
+				{
+					return 1;
+				}
+				else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
+				{
+					if(c2==c+2){
+						if(r2==r+2) {
+							if ((pieces[r+1][c+1]=='B')||(pieces[r+1][c+1]=='b')) {
+								return 2;
+							}
+						}
+						else if(r2==r-2) {
+							if((pieces[r-1][c+1]=='B')||(pieces[r-1][c+1]=='b')) {
+							return 2;
+							}
+						}
+					}
+					else if(c2==c-2) {
+						if(r2==r+2) {
+							if((pieces[r+1][c-1] =='B')||(pieces[r+1][c-1] =='b')) {
+								return 2;
+							}
+						}
+						else if(r2==r-2) {
+							if((pieces[r-1][c-1] =='B')||(pieces[r+1][c-1] =='b')) {
+								return 2;
+							}
+						}
+					}
+				}
+				else if(color==Color.BLACK) {
+					if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
+					{
+						return 1;
+					}
+					else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
+					{
+						if(c2==c+2){
+							if(r2==r+2) {
+								if ((pieces[r+1][c+1]=='R')||(pieces[r+1][c+1]=='r')) {
+									return 2;
+								}
+							}
+							else if(r2==r-2) {
+								if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
+								return 2;
+								}
+							}
+						}
+						else if(c2==c-2) {
+							if(r2==r+2) {
+								if((pieces[r+1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+									return 2;
+								}
+							}
+							else if(r2==r-2) {
+								if((pieces[r-1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+									return 2;
+								}
+							}
+						}
+					}
+				}
 			}
-			else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
-			{
-				return 2;
-			}
+			
 		}
 		else if((color == Color.BLACK && (pieces[r][c] == 'B'))||
 				(color == Color.RED && (pieces[r][c] == 'r')))
-		{
-			if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
-				return 1;
+		{	
+			if(color==Color.RED) {
+				if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
+					return 1;
+				}
+				else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
+					if(c2==c+2){
+						if(r2==r+2) {
+							if ((pieces[r+1][c+1]=='B')||(pieces[r+1][c+1]=='b')) {
+								return 2;
+							}
+						}
+						else if(r2==r-2) {
+							if((pieces[r-1][c+1]=='B')||(pieces[r-1][c+1]=='b')) {
+								return 2;
+							}
+						}
+					}
+					else if(c2==c-2) {
+						if(r2==r+2) {
+							if((pieces[r+1][c-1] =='B')||(pieces[r+1][c-1] =='b')) {
+								return 2;
+							}
+						}
+						else if(r2==r-2) {
+							if((pieces[r-1][c-1] =='B')||(pieces[r+1][c-1] =='b')) {
+								return 2;
+							}
+						}
+					}
+				}
 			}
-			else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
-				return 2;
+			else if (color == Color.BLACK) {
+				if(color==Color.RED) {
+					if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
+						return 1;
+					}
+					else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
+						if(c2==c+2){
+							if(r2==r+2) {
+								if ((pieces[r+1][c+1]=='R')||(pieces[r+1][c+1]=='r')) {
+									return 2;
+								}
+							}
+							else if(r2==r-2) {
+								if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
+									return 2;
+								}
+							}
+						}
+						else if(c2==c-2) {
+							if(r2==r+2) {
+								if((pieces[r+1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+									return 2;
+								}
+							}
+							else if(r2==r-2) {
+								if((pieces[r-1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+									return 2;
+								}
+							}
+						}
+					}
+				}
 			}
+			
 		}
 		
 		//for checking their next move, the indicated position has to be diagonal from the original r,c and blank aka the value is ' ';
