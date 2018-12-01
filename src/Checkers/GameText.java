@@ -85,7 +85,12 @@ public class GameText {
 				currPlayer = p1;
 			}
 		}
-		System.out.println("YOU WON!!!!!!");
+		if(gameBoard.hasWon().equals("red")){
+		System.out.println("RED WON!!!!!!");
+		}
+		else if (gameBoard.hasWon().equals("black")) {
+			System.out.println("BLACK WON!!!!!");
+		}
 	}
 
 	public void display() {
