@@ -29,6 +29,22 @@ public class Checkers {
 			//initial board
 			g.gameLoop(gameBoard);
 		}
+		while (answer != "GUI" || answer != "TEXT") {
+			System.out.println("Invalid input.");
+			System.out.println("Please enter either 'TEXT' or 'GUI'");
+			answer = scnr.nextLine();
+			if (answer.equals("GUI")) {
+				Board gameBoard = new Board();
+				Game g = new Game();
+				//initial board
+				g.gameLoop(gameBoard);
+			}
+			else if (answer.equals("TEXT")) {
+				BoardText gameBoard = new BoardText();
+				GameText g = new GameText();
+				//initial board
+				g.gameLoop(gameBoard);
+		}
 		 //Display for an option of a text based board. This is not where is goes but I just created it here because I'm not sure where it will
 		 //accurately end up
 		/*char [][] list = new char [8][8];
@@ -65,5 +81,6 @@ public class Checkers {
 			}
 			System.out.print("\n---------------------------------\n");
 		}*/
+	}
 	}
 }
