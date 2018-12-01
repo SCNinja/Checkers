@@ -29,6 +29,7 @@ public class GameText {
 			int row2 = scnr.nextInt();
 			int col2 = scnr.nextInt();
 			while (gameBoard.valid(currPlayer, row, col, row2, col2) == 0) {
+				display();
 				System.out.println("You entered an invalid move, plase try again.");
 				System.out.println("Please Enter the row and column of the piece you would like to move");
 				row = scnr.nextInt();

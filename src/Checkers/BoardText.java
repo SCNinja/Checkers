@@ -1,5 +1,7 @@
 package Checkers;
 
+import java.awt.Color;
+
 public class BoardText {
 	char [][] pieces = new char [8][8];
 	public BoardText() {
@@ -53,6 +55,23 @@ public class BoardText {
 	public int valid(Player p, int r, int c, int r2, int c2){
 		//in this case you will have to get the players color and then if it is red, the position of the array of 
 		//characters must have a value of r or R for the first input (r, c)
+		Color color = p.getColor();
+		if(color == Color.RED && ((pieces[r][c]=='R')||(pieces[r][c]=='r'))){
+			if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==' '){
+				return 1;
+			}
+			else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==' ')){
+				return 2;
+			}
+		}
+		else if (color == Color.BLACK && ((pieces[r][c]=='B')||(pieces[r][c]=='b'))){
+			if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==' '){
+				return 1;
+			}
+			else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==' ')){
+				return 2;
+			}
+		}
 		
 		//for checking their next move, the position has to be diagonal from the original r,c and blank aka the value is ' ';
 		//this one should be nested inside the second so that both the conditions have to be true in order for the whole thing to be true
