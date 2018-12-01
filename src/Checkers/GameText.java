@@ -74,7 +74,7 @@ public class GameText {
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
 			//remove piece if jumped no matter whose turn
-			//I need to add a part that decrements the number of Kings if a king is jumped - S
+			//I need to add a part that decrements the number of kings if a king is jumped - S
 			System.out.println(validityNum);
 			if (validityNum==2){
 				if(col2==col+2){
