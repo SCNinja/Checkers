@@ -50,5 +50,15 @@ public class BoardText {
 			return(false);
 		}
 	}
+	public boolean valid(Player p, int r, int c, int r2, int c2){
+		//in this case you will have to get the players color and then if it is red, the position of the array of 
+		//characters must have a value of R for the first input (r, c)
+		
+		//for checking their next move, the position has to be diagonal from the original r,c and blank aka the value is ' ';
+		//this one should be nested inside the second so that both the conditions have to be true in order for the whole thing to be true
+		
+		return(true);
+		
+	}
 	
 }

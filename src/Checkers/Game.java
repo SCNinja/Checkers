@@ -239,13 +239,14 @@ public class Game extends JFrame implements MouseListener{
 		
 		gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX2);
 		gameBoard.pieces[c1.getX()][c1.getY()].setY(tempY2);
-		gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX);
-		gameBoard.pieces[c1.getX()][c1.getY()].setY(tempY);
 		
+		gameBoard.pieces[c2.getX()][c2.getY()].setX(tempX);
+		gameBoard.pieces[c2.getX()][c2.getY()].setY(tempY);
+		/*
 		//gameBoard.pieces[tempX][tempY] = p1;
 		//gameBoard.pieces[tempX2][tempY2] = p2;
 		
-		/*gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX2);
+		gameBoard.pieces[c1.getX()][c1.getY()].setX(tempX2);
 		gameBoard.pieces[c1.getX()][c1.getY()].setY(tempY2);
 		gameBoard.pieces[c2.getX()][c2.getY()].setX(tempX);
 		gameBoard.pieces[c2.getX()][c2.getY()].setY(tempY);
@@ -258,6 +259,7 @@ public class Game extends JFrame implements MouseListener{
 		System.out.println("COUNTER: "+counter);
 		displayBoardGUI();
 		System.out.println("COUNTER: "+counter);
+		
 		int tempx = 4;
 		int tempy = 2;
 		R11.setX(Wh2.getXLoc());
