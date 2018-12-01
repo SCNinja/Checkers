@@ -29,7 +29,7 @@ public class Checkers {
 			//initial board
 			g.gameLoop(gameBoard);
 		}
-		if (answer != "GUI" || answer != "TEXT") {
+		while (answer != "GUI" || answer != "TEXT") {
 			System.out.println("Invalid input.");
 			System.out.println("Please enter either 'TEXT' or 'GUI'");
 			answer = scnr.nextLine();
