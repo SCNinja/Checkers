@@ -87,10 +87,12 @@ public class GameText {
 		}
 		if(gameBoard.hasWon().equals("red")){
 		System.out.println("RED WON!!!!!!");
+		//play again?
 		}
 		else if (gameBoard.hasWon().equals("black")) {
 			System.out.println("BLACK WON!!!!!");
 		}
+	
 	}
 
 	public void display() {
