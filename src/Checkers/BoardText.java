@@ -92,7 +92,7 @@ public class BoardText {
 			if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
 				return 1;
 			}
-			//need the in-between piece to be opposite color
+			//need the in-between piece to be opposite color 
 			else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
 				return 2;
 			}
