@@ -28,7 +28,8 @@ public class GameText {
 	public void gameLoop(BoardText gb) {
 		gameBoard = gb;
 		
-		while (gameBoard.hasWon().equals("none")) {
+		while (gameBoard.hasWon().equals("none"))
+		{
 			display();
 			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " moves.");
 			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " moves.");
