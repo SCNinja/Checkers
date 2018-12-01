@@ -85,7 +85,7 @@ public class GameText {
 				currPlayer = p1;
 			}
 		}
-		//switch player back to the player that won
+		//switch player back to the player that won the game
 		if (currPlayer == p1) {
 			currPlayer = p2;
 		} else {
