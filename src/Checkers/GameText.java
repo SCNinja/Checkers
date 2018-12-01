@@ -40,7 +40,7 @@ public class GameText {
 			System.out.println(gameBoard.pieces[row2][col2]);
 			while (gameBoard.valid(currPlayer, row, col, row2, col2) == 0) {
 				display();
-				System.out.println("You entered an invalid move, plase try again.");
+				System.out.println("You entered an invalid move, please try again.");
 				System.out.println("Please Enter the row and column of the piece you would like to move");
 				row = scnr.nextInt();
 				col = scnr.nextInt();
@@ -51,6 +51,27 @@ public class GameText {
 			char temp = gameBoard.pieces[row][col];
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
+			//remove piece if jumped no matter whos turn
+			if (gameBoard.valid(currPlayer, row, col, row2, col2)==2){
+				if(col2==col+2){
+					if(row2==row+2) {
+						gameBoard.pieces[row+1][col+1] = 0;
+					}
+					else if(row2==row-2) {
+						gameBoard.pieces[row-1][col+1] = 0;
+					}
+				}
+				else if(col2==col-2) {
+					if(row2==row+2) {
+						gameBoard.pieces[row+1][col-1] = 0;
+					}
+					else if(row2==row-2) {
+						gameBoard.pieces[row-1][col-1] = 0;
+					}
+				}
+			}
+			
+			
 			// check for king (make it to be capital)
 			if (currPlayer == p1 && row2 == 7) {
 				gameBoard.pieces[row2][col2] = 'R';
@@ -63,18 +84,18 @@ public class GameText {
 			} else {
 				currPlayer = p1;
 			}
-
 		}
 		System.out.println("YOU WON!!!!!!");
 	}
 
 	public void display() {
+		System.out.println("     0   1   2   3   4   5   6   7  \n");
 		for (int i = 0; i < 8; i++) {
-			System.out.print("| ");
+			System.out.print(i + "  | ");
 			for (int j = 0; j < 8; j++) {
 				System.out.print(gameBoard.pieces[i][j] + " | ");
 			}
-			System.out.print("\n---------------------------------\n");
+			System.out.print("\n   ---------------------------------\n");
 		}
 	}
 }
