@@ -14,6 +14,7 @@ public class Player {
 	private int numPieces;
 	//private int numKings;
 	private Color color;
+	private int moves;
 	
 	/**
 	 * create a new player and sets the number of pieces to 12
@@ -21,7 +22,18 @@ public class Player {
 	public Player(Color c) {
 		color = c;
 		numPieces = 12;
+		moves = 0;
 	} 
+	
+	public int getMoves()
+	{
+		return moves;
+	}
+	
+	public void incrementMoves()
+	{
+		moves++;
+	}
 	
 	/**
 	 * returns the current number of pieces for that player
