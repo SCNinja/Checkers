@@ -65,6 +65,46 @@ class BoardTest {
 		Assert.assertEquals(true, valid);
 	}
 	
+	@Test
+	public void redMoveValidLeftText() {
+		Player player = new Player(Color.RED);
+		Click click1 = new Click(4, 2);
+		Click click2 = new Click(3, 3);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(1, valid);
+	}
+	
+	@Test
+	public void blackMoveValidLeftText() {
+		Player player = new Player(Color.BLACK);
+		Click click1 = new Click(3, 5);
+		Click click2 = new Click(2, 4);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(1, valid);
+	}
+	
+	@Test
+	public void redMoveValidRightText() {
+		Player player = new Player(Color.RED);
+		Click click1 = new Click(4, 2);
+		Click click2 = new Click(5, 3);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(1, valid);
+	}
+	
+	@Test
+	public void blackMoveValidRightText() {
+		Player player = new Player(Color.BLACK);
+		Click click1 = new Click(3, 5);
+		Click click2 = new Click(4, 4);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(1, valid);
+	}
+	
 	
 	/* IDEAS FOR TESTS
 	 * If a click is on the edge of a board space, make sure it registers and either
