@@ -19,18 +19,25 @@ public class GameText {
 
 	public void gameLoop(BoardText gb) {
 		gameBoard = gb;
-		display();
-
-		while (!gameBoard.hasWon()) {
+		
+		
+		while (gameBoard.hasWon().equals("none")) {
+			display();
+			if (currPlayer == p1) {
+				System.out.println("Player 1 (RED): please enter a valid move.");
+			}
+			if (currPlayer == p2) {
+				System.out.println("Player 2 (BLACK): please enter a valid move.");
+			}
 			System.out.println("Please Enter the row and column of the piece you would like to move");
 			int row = scnr.nextInt();
 			int col = scnr.nextInt();
-			System.out.println(gameBoard.pieces[row][col]);
 			System.out.println("Please Enter the row and column of the position you would like to move to");
 			int row2 = scnr.nextInt();
 			int col2 = scnr.nextInt();
-			System.out.println(gameBoard.pieces[row2][col2]);
-			while (gameBoard.valid(currPlayer, row, col, row2, col2) == 0) {
+			int validityNum;
+			validityNum =gameBoard.valid(currPlayer, row, col, row2, col2);
+			while (validityNum == 0) {
 				display();
 				System.out.println("You entered an invalid move, please try again.");
 				System.out.println("Please Enter the row and column of the piece you would like to move");
@@ -39,17 +46,20 @@ public class GameText {
 				System.out.println("Please Enter the row and column of the position you would like to move to");
 				row2 = scnr.nextInt();
 				col2 = scnr.nextInt();
+				validityNum = gameBoard.valid(currPlayer, row, col, row2, col2);
 			}
 			char temp = gameBoard.pieces[row][col];
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
 			//remove piece if jumped no matter whos turn
-			if (gameBoard.valid(currPlayer, row, col, row2, col2)==2){
+			System.out.println(validityNum);
+			if (validityNum==2){
 				if(col2==col+2){
 					if(row2==row+2) {
 						gameBoard.pieces[row+1][col+1] = 0;
 					}
 					else if(row2==row-2) {
+						
 						gameBoard.pieces[row-1][col+1] = 0;
 					}
 				}
@@ -61,16 +71,14 @@ public class GameText {
 						gameBoard.pieces[row-1][col-1] = 0;
 					}
 				}
-			}
-			
-			
+			}			
 			// check for king (make it to be capital)
 			if (currPlayer == p1 && row2 == 7) {
 				gameBoard.pieces[row2][col2] = 'R';
 			} else if (currPlayer == p2 && row2 == 0) {
 				gameBoard.pieces[row2][col2] = 'B';
 			}
-			display();
+			
 			if (currPlayer == p1) {
 				currPlayer = p2;
 			} else {
