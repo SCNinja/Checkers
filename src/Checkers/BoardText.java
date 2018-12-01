@@ -57,18 +57,18 @@ public class BoardText {
 		//characters must have a value of r or R for the first input (r, c)
 		Color color = p.getColor();
 		if(color == Color.RED && ((pieces[r][c]=='R')||(pieces[r][c]=='r'))){
-			if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==' '){
+			if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
 				return 1;
 			}
-			else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==' ')){
+			else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
 				return 2;
 			}
 		}
 		else if (color == Color.BLACK && ((pieces[r][c]=='B')||(pieces[r][c]=='b'))){
-			if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==' '){
+			if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
 				return 1;
 			}
-			else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==' ')){
+			else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
 				return 2;
 			}
 		}

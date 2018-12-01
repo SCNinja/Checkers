@@ -25,9 +25,11 @@ public class GameText {
 			System.out.println("Please Enter the row and column of the piece you would like to move");
 			int row = scnr.nextInt();
 			int col = scnr.nextInt();
+			System.out.println(gameBoard.pieces[row][col]);
 			System.out.println("Please Enter the row and column of the position you would like to move to");
 			int row2 = scnr.nextInt();
 			int col2 = scnr.nextInt();
+			System.out.println(gameBoard.pieces[row2][col2]);
 			while (gameBoard.valid(currPlayer, row, col, row2, col2) == 0) {
 				display();
 				System.out.println("You entered an invalid move, plase try again.");
