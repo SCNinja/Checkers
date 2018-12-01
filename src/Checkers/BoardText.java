@@ -3,41 +3,41 @@ package Checkers;
 public class BoardText {
 	char [][] pieces = new char [8][8];
 	public BoardText() {
-		pieces[0][0] = 'R';
-		pieces[0][2] = 'R';
-		pieces[0][4] = 'R';
-		pieces[0][6] = 'R';
-		pieces[1][1] = 'R';
-		pieces[1][3] = 'R';
-		pieces[1][5] = 'R';
-		pieces[1][7] = 'R';
-		pieces[2][0] = 'R';
-		pieces[2][2] = 'R';
-		pieces[2][4] = 'R';
-		pieces[2][6] = 'R';
+		pieces[0][0] = 'r';
+		pieces[0][2] = 'r';
+		pieces[0][4] = 'r';
+		pieces[0][6] = 'r';
+		pieces[1][1] = 'r';
+		pieces[1][3] = 'r';
+		pieces[1][5] = 'r';
+		pieces[1][7] = 'r';
+		pieces[2][0] = 'r';
+		pieces[2][2] = 'r';
+		pieces[2][4] = 'r';
+		pieces[2][6] = 'r';
 		
-		pieces[5][1] = 'B';
-		pieces[5][3] = 'B';
-		pieces[5][5] = 'B';
-		pieces[5][7] = 'B';
-		pieces[6][0] = 'B';
-		pieces[6][2] = 'B';
-		pieces[6][4] = 'B';
-		pieces[6][6] = 'B';
-		pieces[7][1] = 'B';
-		pieces[7][3] = 'B';
-		pieces[7][5] = 'B';
-		pieces[7][7] = 'B';
+		pieces[5][1] = 'b';
+		pieces[5][3] = 'b';
+		pieces[5][5] = 'b';
+		pieces[5][7] = 'b';
+		pieces[6][0] = 'b';
+		pieces[6][2] = 'b';
+		pieces[6][4] = 'b';
+		pieces[6][6] = 'b';
+		pieces[7][1] = 'b';
+		pieces[7][3] = 'b';
+		pieces[7][5] = 'b';
+		pieces[7][7] = 'b';
 	}
 	public boolean hasWon() {
 		int red = 0;
 		int black = 0;
 		for (int i = 0; i<8; i++) {
 			for(int j = 0; j<8; j++) {
-				if (pieces.equals('R')) {
+				if (pieces[i][j]==('R')||pieces[i][j]==('r')) {
 					red++;
 				}
-				if (pieces.equals('B')) {
+				if (pieces[i][j]==('B')||pieces[i][j]==('b')) {
 					black++;
 				}
 				
@@ -52,7 +52,7 @@ public class BoardText {
 	}
 	public int valid(Player p, int r, int c, int r2, int c2){
 		//in this case you will have to get the players color and then if it is red, the position of the array of 
-		//characters must have a value of R for the first input (r, c)
+		//characters must have a value of r or R for the first input (r, c)
 		
 		//for checking their next move, the position has to be diagonal from the original r,c and blank aka the value is ' ';
 		//this one should be nested inside the second so that both the conditions have to be true in order for the whole thing to be true
