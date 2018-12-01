@@ -2,12 +2,17 @@ package Checkers;
 
 import java.awt.Color;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GameText {
 	private Player p1;
 	private Player p2;
 	private Player currPlayer;
 	private BoardText gameBoard;
+	private Map<Player, Integer> moves;
+	private int p1moves;
+	private int p2moves;
 	Scanner scnr;
 
 	public GameText() {
@@ -15,14 +20,19 @@ public class GameText {
 		p2 = new Player(Color.BLACK);
 		currPlayer = p1;
 		scnr = new Scanner(System.in);
+		moves = new HashMap<>();
+		moves.put(p1,p1.getMoves());
+		moves.put(p2,p2.getMoves());
 	}
 
 	public void gameLoop(BoardText gb) {
 		gameBoard = gb;
 		
-		
-		while (gameBoard.hasWon().equals("none")) {
+		while (gameBoard.hasWon().equals("none"))
+		{
 			display();
+			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " moves.");
+			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " moves.");
 			if (currPlayer == p1) {
 				System.out.println("Player 1 (RED): please enter a valid move.");
 			}
@@ -48,10 +58,23 @@ public class GameText {
 				col2 = scnr.nextInt();
 				validityNum = gameBoard.valid(currPlayer, row, col, row2, col2);
 			}
+			
+			//creating player stats
+			if (validityNum == 1)
+			{
+				currPlayer.incrementMoves();
+				moves.put(currPlayer,currPlayer.getMoves());
+			}
+			else if (validityNum == 2)
+			{
+				currPlayer.incrementMoves();
+				moves.put(currPlayer,currPlayer.getMoves());
+			}
+			
 			char temp = gameBoard.pieces[row][col];
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
-			//remove piece if jumped no matter whos turn
+			//remove piece if jumped no matter whose turn
 			System.out.println(validityNum);
 			if (validityNum==2){
 				if(col2==col+2){
