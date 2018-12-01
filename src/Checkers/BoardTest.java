@@ -65,6 +65,8 @@ class BoardTest {
 		Assert.assertEquals(true, valid);
 	}
 	
+	//Text Game Valid Move Tests
+	
 	@Test
 	public void redMoveValidLeftText() {
 		Player player = new Player(Color.RED);
