@@ -21,7 +21,7 @@ public class GameText {
 		gameBoard = gb;
 		
 		
-		while (!gameBoard.hasWon()) {
+		while (gameBoard.hasWon().equals("none")) {
 			display();
 			if (currPlayer == p1) {
 				System.out.println("Player 1 (RED): please enter a valid move.");
@@ -32,13 +32,11 @@ public class GameText {
 			System.out.println("Please Enter the row and column of the piece you would like to move");
 			int row = scnr.nextInt();
 			int col = scnr.nextInt();
-			System.out.println(gameBoard.pieces[row][col]);
 			System.out.println("Please Enter the row and column of the position you would like to move to");
 			int row2 = scnr.nextInt();
 			int col2 = scnr.nextInt();
 			int validityNum;
 			validityNum =gameBoard.valid(currPlayer, row, col, row2, col2);
-			System.out.println(gameBoard.pieces[row2][col2]);
 			while (validityNum == 0) {
 				display();
 				System.out.println("You entered an invalid move, please try again.");
@@ -56,7 +54,6 @@ public class GameText {
 			//remove piece if jumped no matter whos turn
 			System.out.println(validityNum);
 			if (validityNum==2){
-				System.out.println("TESING");
 				if(col2==col+2){
 					if(row2==row+2) {
 						gameBoard.pieces[row+1][col+1] = 0;
@@ -74,9 +71,7 @@ public class GameText {
 						gameBoard.pieces[row-1][col-1] = 0;
 					}
 				}
-			}
-			
-			
+			}			
 			// check for king (make it to be capital)
 			if (currPlayer == p1 && row2 == 7) {
 				gameBoard.pieces[row2][col2] = 'R';

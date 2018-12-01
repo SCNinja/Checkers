@@ -31,7 +31,7 @@ public class BoardText {
 		pieces[7][5] = 'b';
 		pieces[7][7] = 'b';
 	}
-	public boolean hasWon() {
+	public String hasWon() {
 		int red = 0;
 		int black = 0;
 		for (int i = 0; i<8; i++) {
@@ -45,11 +45,14 @@ public class BoardText {
 				
 			}
 		}
-		if(red==0||black==0) {
-			return(true);
+		if(red==0) {
+			return("red");
+		}
+		else if (black==0) {
+			return("black");
 		}
 		else {
-			return(false);
+			return("none");
 		}
 	}
 	public int valid(Player p, int r, int c, int r2, int c2){
