@@ -55,7 +55,6 @@ public class GameText {
 			} else {
 				currPlayer = p1;
 			}
-
 		}
 		System.out.println("YOU WON!!!!!!");
 	}
