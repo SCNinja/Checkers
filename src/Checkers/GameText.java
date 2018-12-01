@@ -29,7 +29,6 @@ public class GameText {
 				System.out.println("Player 2 (BLACK): please enter a valid move.");
 			}
 
-
 			System.out.println("Please Enter the row and column of the piece you would like to move");
 			int row = scnr.nextInt();
 			int col = scnr.nextInt();
