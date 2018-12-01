@@ -85,6 +85,13 @@ public class GameText {
 				currPlayer = p1;
 			}
 		}
+		//switch player back to the player that won
+		if (currPlayer == p1) {
+			currPlayer = p2;
+		} else {
+			currPlayer = p1;
+		}
+		display();
 		if(gameBoard.hasWon().equals("red")){
 		System.out.println("RED WON!!!!!!");
 		//play again?
