@@ -12,9 +12,10 @@ import java.awt.Color;
 	
 public class Player {
 	private int numPieces;
-	//private int numKings;
+	private int numKings;
 	private Color color;
-	private int moves;
+	private int numMoves;
+	
 	
 	/**
 	 * create a new player and sets the number of pieces to 12
@@ -22,17 +23,17 @@ public class Player {
 	public Player(Color c) {
 		color = c;
 		numPieces = 12;
-		moves = 0;
+		numMoves = 0;
 	} 
 	
 	public int getMoves()
 	{
-		return moves;
+		return numMoves;
 	}
 	
 	public void incrementMoves()
 	{
-		moves++;
+		numMoves++;
 	}
 	
 	/**
@@ -54,13 +55,21 @@ public class Player {
 		return color;
 	}
 	
-	/*
-	 * public int getKings(){
-	 * 
-	 * }
-	 * 
-	 * public void setColor(Color newC){
-	 * 
-	 * }
-	 */
+	public int getKings() {
+		return numKings;
+	}
+	
+	public void incrementKings()
+	{
+		numKings++;
+	}
+	
+	public void decrementKings()
+	{
+		numKings--;
+	}
+	
+	/*public void setColor(Color newC){
+	
+	}*/
 }

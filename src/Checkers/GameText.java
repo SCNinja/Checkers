@@ -11,8 +11,7 @@ public class GameText {
 	private Player currPlayer;
 	private BoardText gameBoard;
 	private Map<Player, Integer> moves;
-	private int p1moves;
-	private int p2moves;
+	private Map<Player, Integer> kings;
 	Scanner scnr;
 
 	public GameText() {
@@ -23,6 +22,9 @@ public class GameText {
 		moves = new HashMap<>();
 		moves.put(p1,p1.getMoves());
 		moves.put(p2,p2.getMoves());
+		kings = new HashMap<>();
+		kings.put(p1,p1.getKings());
+		kings.put(p2,p2.getKings());
 	}
 
 	public void gameLoop(BoardText gb) {
@@ -31,8 +33,10 @@ public class GameText {
 		while (gameBoard.hasWon().equals("none"))
 		{
 			display();
-			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " moves.");
-			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " moves.");
+			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " moves and has "
+					+ kings.get(p1) + " kings.");
+			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " moves and has "
+					+ kings.get(p2) + " kings.");
 			if (currPlayer == p1) {
 				System.out.println("Player 1 (RED): please enter a valid move.");
 			}
@@ -60,12 +64,7 @@ public class GameText {
 			}
 			
 			//creating player stats
-			if (validityNum == 1)
-			{
-				currPlayer.incrementMoves();
-				moves.put(currPlayer,currPlayer.getMoves());
-			}
-			else if (validityNum == 2)
+			if ((validityNum == 1)||(validityNum == 2))
 			{
 				currPlayer.incrementMoves();
 				moves.put(currPlayer,currPlayer.getMoves());
@@ -75,6 +74,7 @@ public class GameText {
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
 			//remove piece if jumped no matter whose turn
+			//I need to add a part that decrements the number of Kings if a king is jumped - S
 			System.out.println(validityNum);
 			if (validityNum==2){
 				if(col2==col+2){
@@ -98,8 +98,12 @@ public class GameText {
 			// check for king (make it to be capital)
 			if (currPlayer == p1 && row2 == 7) {
 				gameBoard.pieces[row2][col2] = 'R';
+				p1.incrementKings();
+				kings.put(p1,p1.getKings());
 			} else if (currPlayer == p2 && row2 == 0) {
 				gameBoard.pieces[row2][col2] = 'B';
+				p2.incrementKings();
+				kings.put(p2,p2.getKings());
 			}
 			
 			if (currPlayer == p1) {
@@ -116,13 +120,12 @@ public class GameText {
 		}
 		display();
 		if(gameBoard.hasWon().equals("red")){
-		System.out.println("RED WON!!!!!!");
+		System.out.println("RED WON in " + moves.get(p1) + " moves!!!");
 		//play again?
 		}
 		else if (gameBoard.hasWon().equals("black")) {
-			System.out.println("BLACK WON!!!!!");
+			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!!");
 		}
-	
 	}
 
 	public void display() {
