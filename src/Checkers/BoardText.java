@@ -73,7 +73,7 @@ public class BoardText {
 			}
 		}
 		
-		//for checking their next move, the position has to be diagonal from the original r,c and blank aka the value is ' ';
+		//for checking their next move, the indicated position has to be diagonal from the original r,c and blank aka the value is ' ';
 		//this one should be nested inside the second so that both the conditions have to be true in order for the whole thing to be true
 		//if the move is just diagonal then return a 1
 		
