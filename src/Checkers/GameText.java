@@ -120,11 +120,11 @@ public class GameText {
 		}
 		display();
 		if(gameBoard.hasWon().equals("red")){
-		System.out.println("RED WON in " + moves.get(p1) + " moves!!!");
+		System.out.println("RED WON in " + moves.get(p1) + " moves!!! RED had " + kings.get(p1) + " kings.");
 		//play again?
 		}
 		else if (gameBoard.hasWon().equals("black")) {
-			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!!");
+			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " kings.");
 		}
 	}
 
