@@ -56,7 +56,7 @@ public class BoardText {
 	}
 	public int valid(Player p, int r, int c, int r2, int c2){
 		//in this case you will have to get the players color and then if it is red, the position of the array of 
-		//characters must have a value of r or R for the first input (r, c)
+		//characters must have a value of r or R for the first input (r, c) 
 		Color color = p.getColor();
 		if((r<0)||(r>7)||(c<0)||(c>7)||(r2<0)||(r2>7)||(c2<0)||(c2>7)) {
 			return(0);
