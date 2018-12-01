@@ -43,6 +43,27 @@ public class GameText {
 			char temp = gameBoard.pieces[row][col];
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
+			//remove piece if jumped
+			if (gameBoard.valid(currPlayer, row, col, row2, col2)==2){
+				if(col2==col+2){
+					if(row2==row+2) {
+						gameBoard.pieces[row+1][col+1] = 0;
+					}
+					else if(row2==row-2) {
+						gameBoard.pieces[row-1][col+1] = 0;
+					}
+				}
+				else if(col2==col-2) {
+					if(row2==row+2) {
+						gameBoard.pieces[row+1][col-1] = 0;
+					}
+					else if(row2==row-2) {
+						gameBoard.pieces[row-1][col-1] = 0;
+					}
+				}
+			}
+			
+			
 			// check for king (make it to be capital)
 			if (currPlayer == p1 && row2 == 7) {
 				gameBoard.pieces[row2][col2] = 'R';
