@@ -68,6 +68,7 @@ class BoardTest {
 	@Test
 	public void redMoveValidLeftText() {
 		Player player = new Player(Color.RED);
+		Game game = new Game();
 		Click click1 = new Click(4, 2);
 		Click click2 = new Click(3, 3);
 		BoardText board = new BoardText();
@@ -78,6 +79,7 @@ class BoardTest {
 	@Test
 	public void blackMoveValidLeftText() {
 		Player player = new Player(Color.BLACK);
+		Game game = new Game();
 		Click click1 = new Click(3, 5);
 		Click click2 = new Click(2, 4);
 		BoardText board = new BoardText();
@@ -88,6 +90,7 @@ class BoardTest {
 	@Test
 	public void redMoveValidRightText() {
 		Player player = new Player(Color.RED);
+		Game game = new Game();
 		Click click1 = new Click(4, 2);
 		Click click2 = new Click(5, 3);
 		BoardText board = new BoardText();
@@ -98,11 +101,56 @@ class BoardTest {
 	@Test
 	public void blackMoveValidRightText() {
 		Player player = new Player(Color.BLACK);
+		Game game = new Game();
 		Click click1 = new Click(3, 5);
 		Click click2 = new Click(4, 4);
 		BoardText board = new BoardText();
 		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
 		Assert.assertEquals(1, valid);
+	}
+	
+	@Test
+	public void redMoveValidLeftTextJump() {
+		Player player = new Player(Color.RED);
+		Game game = new Game();
+		Click click1 = new Click(4, 2);
+		Click click2 = new Click(2, 4);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(2, valid);
+	}
+	
+	@Test
+	public void blackMoveValidLeftTextJump() {
+		Player player = new Player(Color.BLACK);
+		Game game = new Game();
+		Click click1 = new Click(3, 5);
+		Click click2 = new Click(1, 3);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(2, valid);
+	}
+	
+	@Test
+	public void redMoveValidRightTextJump() {
+		Player player = new Player(Color.RED);
+		Game game = new Game();
+		Click click1 = new Click(4, 2);
+		Click click2 = new Click(6, 4);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(2, valid);
+	}
+	
+	@Test
+	public void blackMoveValidRightTextJump() {
+		Player player = new Player(Color.BLACK);
+		Game game = new Game();
+		Click click1 = new Click(3, 5);
+		Click click2 = new Click(5, 3);
+		BoardText board = new BoardText();
+		int valid = board.valid(player, click1.getX(), click1.getY(), click2.getX(), click2.getY());
+		Assert.assertEquals(2, valid);
 	}
 	
 	
