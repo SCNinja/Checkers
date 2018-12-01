@@ -22,13 +22,6 @@ public class GameText {
 		
 		
 		while (!gameBoard.hasWon()) {
-			if (currPlayer == p1) {
-				System.out.println("Player 1 (RED): please enter a valid move.");
-			}
-			if (currPlayer == p2) {
-				System.out.println("Player 2 (BLACK): please enter a valid move.");
-			}
-
 			display();
 			if (currPlayer == p1) {
 				System.out.println("Player 1 (RED): please enter a valid move.");
