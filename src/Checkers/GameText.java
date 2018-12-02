@@ -173,11 +173,11 @@ public class GameText {
 			currPlayer = p1;
 		}
 		display();
-		if(gameBoard.hasWon().equals("red")){
+		if(gameBoard.hasWon().equals("black")){
 		System.out.println("RED WON in " + moves.get(p1) + " moves!!! RED had " + kings.get(p1) + " king(s).");
 		//play again?
 		}
-		else if (gameBoard.hasWon().equals("black")) {
+		else if (gameBoard.hasWon().equals("red")) {
 			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " king(s).");
 		}
 	}
