@@ -150,11 +150,11 @@ public class GameText {
 				}
 			}			
 			// check for king (make it to be capital)
-			if (currPlayer == p1 && row2 == 7) {
+			if (currPlayer == p1 && row2 == 7 && gameBoard.pieces[row][col] != 'R') {
 				gameBoard.pieces[row2][col2] = 'R';
 				p1.incrementKings();
 				kings.put(p1,p1.getKings());
-			} else if (currPlayer == p2 && row2 == 0) {
+			} else if (currPlayer == p2 && row2 == 0 && gameBoard.pieces[row][col] != 'B') {
 				gameBoard.pieces[row2][col2] = 'B';
 				p2.incrementKings();
 				kings.put(p2,p2.getKings());
