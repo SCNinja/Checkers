@@ -74,23 +74,61 @@ public class GameText {
 			gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 			gameBoard.pieces[row2][col2] = temp;
 			//remove piece if jumped no matter whose turn
-			//I need to add a part that decrements the number of kings if a king is jumped - S
 			System.out.println(validityNum);
 			if (validityNum==2){
 				if(col2==col+2){
 					if(row2==row+2) {
+						if (gameBoard.pieces[row+1][col+1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
+						}
+						else if (gameBoard.pieces[row+1][col+1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
 						gameBoard.pieces[row+1][col+1] = 0;
 					}
 					else if(row2==row-2) {
-						
+						if (gameBoard.pieces[row-1][col+1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
+						}
+						else if (gameBoard.pieces[row-1][col+1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
 						gameBoard.pieces[row-1][col+1] = 0;
 					}
 				}
 				else if(col2==col-2) {
 					if(row2==row+2) {
+						if (gameBoard.pieces[row+1][col-1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
+						}
+						else if (gameBoard.pieces[row+1][col-1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
 						gameBoard.pieces[row+1][col-1] = 0;
 					}
 					else if(row2==row-2) {
+						if (gameBoard.pieces[row-1][col-1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
+						}
+						else if (gameBoard.pieces[row-1][col-1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
 						gameBoard.pieces[row-1][col-1] = 0;
 					}
 				}
