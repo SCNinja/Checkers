@@ -17,7 +17,7 @@ public class BoardText {
 		pieces[2][2] = 'r';
 		pieces[2][4] = 'r';
 		pieces[2][6] = 'r';
-		
+
 		pieces[5][1] = 'b';
 		pieces[5][3] = 'b';
 		pieces[5][5] = 'b';
@@ -66,7 +66,7 @@ public class BoardText {
 		{
 			System.out.println("HERE");
 			if(color == Color.RED) {
-				if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
+				if((r2 == r-1||r2 == r+1) && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
 				{
 					return 1;
 				}
@@ -80,7 +80,7 @@ public class BoardText {
 						}
 						else if(r2==r-2) {
 							if((pieces[r-1][c+1]=='B')||(pieces[r-1][c+1]=='b')) {
-							return 2;
+								return 2;
 							}
 						}
 					}					
@@ -113,7 +113,7 @@ public class BoardText {
 						}
 						else if(r2==r-2) {
 							if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
-							return 2;
+								return 2;
 							}
 						}
 					}
@@ -132,7 +132,7 @@ public class BoardText {
 				}
 			}
 		}
-			
+
 		else if((color == Color.BLACK && (pieces[r][c] == 'B'))||
 				(color == Color.RED && (pieces[r][c] == 'r')))
 		{	
@@ -168,7 +168,7 @@ public class BoardText {
 				}
 			}
 			else if (color == Color.BLACK) {
-				if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
+				if((r2 == r+1||r2 == r-1) && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
 					return 1;
 				}
 				else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
@@ -195,22 +195,22 @@ public class BoardText {
 								return 2;
 							}
 						}
-					
+
 					}
 				}
 			}
-			
+
 		}
-		
+
 		//for checking their next move, the indicated position has to be diagonal from the original r,c and blank aka the value is ' ';
 		//this one should be nested inside the second so that both the conditions have to be true in order for the whole thing to be true
 		//if the move is just diagonal then return a 1
-		
+
 		//then check for jumps and return a 2 id if it's a jump
-		
+
 		//return a 0 if the move is invalid
 		return(0);
-		
+
 	}
-	
+
 }
