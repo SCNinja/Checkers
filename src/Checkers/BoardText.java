@@ -168,35 +168,34 @@ public class BoardText {
 				}
 			}
 			else if (color == Color.BLACK) {
-				if(color==Color.RED) {
-					if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
-						return 1;
+				if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
+					return 1;
+				}
+				else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
+					if(c2==c+2){
+						if(r2==r+2) {
+							if ((pieces[r+1][c+1]=='R')||(pieces[r+1][c+1]=='r')) {
+								return 2;
+							}
+						}
+						else if(r2==r-2) {
+							if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
+								return 2;
+							}
+						}
 					}
-					else if((r2 == r+2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0)){
-						if(c2==c+2){
-							if(r2==r+2) {
-								if ((pieces[r+1][c+1]=='R')||(pieces[r+1][c+1]=='r')) {
-									return 2;
-								}
-							}
-							else if(r2==r-2) {
-								if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
-									return 2;
-								}
+					else if(c2==c-2) {
+						if(r2==r+2) {
+							if((pieces[r+1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+								return 2;
 							}
 						}
-						else if(c2==c-2) {
-							if(r2==r+2) {
-								if((pieces[r+1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
-									return 2;
-								}
-							}
-							else if(r2==r-2) {
-								if((pieces[r-1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
-									return 2;
-								}
+						else if(r2==r-2) {
+							if((pieces[r-1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+								return 2;
 							}
 						}
+					
 					}
 				}
 			}
