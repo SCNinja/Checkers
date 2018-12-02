@@ -1,7 +1,9 @@
 package Checkers;
 
 import java.awt.Color;
+import java.awt.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +14,11 @@ public class GameText {
 	private BoardText gameBoard;
 	private Map<Player, Integer> moves;
 	private Map<Player, Integer> kings;
+	private ArrayList<Integer> firstX;
+	private ArrayList<Integer> firstY;
+	private ArrayList<Integer> secondX;
+	private ArrayList<Integer> secondY;
+
 	Scanner scnr;
 
 	public GameText() {
@@ -49,6 +56,7 @@ public class GameText {
 			System.out.println("Please Enter the row and column of the position you would like to move to");
 			int row2 = scnr.nextInt();
 			int col2 = scnr.nextInt();
+			
 			int validityNum;
 			validityNum =gameBoard.valid(currPlayer, row, col, row2, col2);
 			while (validityNum == 0) {
