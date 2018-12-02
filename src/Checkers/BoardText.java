@@ -64,12 +64,13 @@ public class BoardText {
 		if((color == Color.RED && (pieces[r][c] == 'R'))||
 				(color == Color.BLACK && (pieces[r][c] == 'b')))
 		{
+			System.out.println("HERE");
 			if(color == Color.RED) {
 				if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
 				{
 					return 1;
 				}
-				else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
+				else if(((r2 == r-2||r2 == r+2) && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
 				{
 					if(c2==c+2){
 						if(r2==r+2) {
@@ -82,7 +83,7 @@ public class BoardText {
 							return 2;
 							}
 						}
-					}
+					}					
 					else if(c2==c-2) {
 						if(r2==r+2) {
 							if((pieces[r+1][c-1] =='B')||(pieces[r+1][c-1] =='b')) {
@@ -96,42 +97,42 @@ public class BoardText {
 						}
 					}
 				}
-				else if(color==Color.BLACK) {
-					if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
-					{
-						return 1;
-					}
-					else if((r2 == r-2 && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
-					{
-						if(c2==c+2){
-							if(r2==r+2) {
-								if ((pieces[r+1][c+1]=='R')||(pieces[r+1][c+1]=='r')) {
-									return 2;
-								}
-							}
-							else if(r2==r-2) {
-								if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
+			}
+			else if(color==Color.BLACK) {
+				if(r2 == r-1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
+				{
+					return 1;
+				}
+				else if(((r2 == r-2||r2 == r+2) && (c2==c+2||c2==c-2)&&pieces[r2][c2]==0))
+				{
+					if(c2==c+2){
+						if(r2==r+2) {
+							if ((pieces[r+1][c+1]=='R')||(pieces[r+1][c+1]=='r')) {
 								return 2;
-								}
 							}
 						}
-						else if(c2==c-2) {
-							if(r2==r+2) {
-								if((pieces[r+1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
-									return 2;
-								}
+						else if(r2==r-2) {
+							if((pieces[r-1][c+1]=='R')||(pieces[r-1][c+1]=='r')) {
+							return 2;
 							}
-							else if(r2==r-2) {
-								if((pieces[r-1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
-									return 2;
-								}
+						}
+					}
+					else if(c2==c-2) {
+						if(r2==r+2) {
+							if((pieces[r+1][c-1] =='R')||(pieces[r+1][c-1] =='r')) {
+								return 2;
+							}
+						}
+						else if(r2==r-2) {
+							if((pieces[r-1][c-1] =='R')||(pieces[r-1][c-1] =='r')) {
+								return 2;
 							}
 						}
 					}
 				}
 			}
-			
 		}
+			
 		else if((color == Color.BLACK && (pieces[r][c] == 'B'))||
 				(color == Color.RED && (pieces[r][c] == 'r')))
 		{	
@@ -159,7 +160,7 @@ public class BoardText {
 							}
 						}
 						else if(r2==r-2) {
-							if((pieces[r-1][c-1] =='B')||(pieces[r+1][c-1] =='b')) {
+							if((pieces[r-1][c-1] =='B')||(pieces[r-1][c-1] =='b')) {
 								return 2;
 							}
 						}
