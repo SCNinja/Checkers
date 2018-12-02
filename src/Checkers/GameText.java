@@ -180,6 +180,7 @@ public class GameText {
 		else if (gameBoard.hasWon().equals("black")) {
 			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " king(s).");
 		}
+		//play again?
 	}
 
 	public void display() {
