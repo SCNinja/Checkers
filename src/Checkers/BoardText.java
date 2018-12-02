@@ -134,8 +134,7 @@ public class BoardText {
 		}
 
 		else if((color == Color.BLACK && (pieces[r][c] == 'B'))||
-				(color == Color.RED && (pieces[r][c] == 'r')))
-		{	
+				(color == Color.RED && (pieces[r][c] == 'r'))) {	
 			if(color==Color.RED) {
 				if(r2 == r+1 && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0){
 					return 1;
