@@ -181,7 +181,7 @@ public class GameText {
 			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " king(s).");
 		}
 		//play again?
-		System.out.println("Would you like to play again? Enter 'Y' or 'N: ");
+		System.out.println("Would you like to play again? Enter 'Y' or 'N': ");
 		Scanner scn = new Scanner(System.in);
 		if(scn.nextLine().equals("Y")) {
 			BoardText gameBoard = new BoardText();
