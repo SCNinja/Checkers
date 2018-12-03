@@ -154,61 +154,59 @@ gameBoard = gb;
 				if (validityNums.get(j)==2){
 					System.out.println("HERE!!!!!!!!");
 					System.out.println(row+" "+col+" "+row2+" "+col2);
-					if(col2==col+2){
-						if(row2==row+2) {
-							if (gameBoard.pieces[row+1][col+1] == 'R')
-							{
-								p1.decrementKings();
-								kings.put(p1,p1.getKings());
-							}
-							else if (gameBoard.pieces[row+1][col+1] == 'B')
-							{
-								p2.decrementKings();
-								kings.put(p2,p2.getKings());
-							}
-							gameBoard.pieces[row+1][col+1] = 0;
-						}
-						else if(row2==row-2) {
-							if (gameBoard.pieces[row-1][col+1] == 'R')
-							{
-								p1.decrementKings();
-								kings.put(p1,p1.getKings());
-							}
-							else if (gameBoard.pieces[row-1][col+1] == 'B')
+					if(row2==row+2) {
+						if (gameBoard.pieces[row+1][col+1] == 'R')
 						{
-								p2.decrementKings();
-								kings.put(p2,p2.getKings());
-							}
-								gameBoard.pieces[row-1][col+1] = 0;
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
 						}
+						else if (gameBoard.pieces[row+1][col+1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
+						gameBoard.pieces[row+1][col+1] = 0;
 					}
-					else if(col2==col-2) {
-						if(row2==row+2) {
-							if (gameBoard.pieces[row+1][col-1] == 'R')
-							{
-								p1.decrementKings();
-								kings.put(p1,p1.getKings());
-							}
-							else if (gameBoard.pieces[row+1][col-1] == 'B')
-							{
-								p2.decrementKings();
-								kings.put(p2,p2.getKings());
-							}
-							gameBoard.pieces[row+1][col-1] = 0;
+					else if(row2==row-2) {
+						if (gameBoard.pieces[row-1][col+1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
 						}
-						else if(row2==row-2) {
-							if (gameBoard.pieces[row-1][col-1] == 'R')
-							{
-								p1.decrementKings();
-								kings.put(p1,p1.getKings());
-							}
-							else if (gameBoard.pieces[row-1][col-1] == 'B')
-							{
-								p2.decrementKings();
-								kings.put(p2,p2.getKings());
-							}
-							gameBoard.pieces[row-1][col-1] = 0;
+						else if (gameBoard.pieces[row-1][col+1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
 						}
+						gameBoard.pieces[row-1][col+1] = 0;
+					}
+				}
+				else if(col2==col-2) {
+					if(row2==row+2) {
+						if (gameBoard.pieces[row+1][col-1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
+						}
+						else if (gameBoard.pieces[row+1][col-1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
+						gameBoard.pieces[row+1][col-1] = 0;
+					}
+					else if(row2==row-2) {
+						if (gameBoard.pieces[row-1][col-1] == 'R')
+						{
+							p1.decrementKings();
+							kings.put(p1,p1.getKings());
+						}
+						else if (gameBoard.pieces[row-1][col-1] == 'B')
+						{
+							p2.decrementKings();
+							kings.put(p2,p2.getKings());
+						}
+						gameBoard.pieces[row-1][col-1] = 0;
 					}
 				}
 			}
@@ -246,6 +244,16 @@ gameBoard = gb;
 		}
 		else if (gameBoard.hasWon().equals("black")) {
 			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " kings.");
+		}
+		System.out.println("Would you like to play again? Enter 'Y' or 'N': ");
+		Scanner scn = new Scanner(System.in);
+		if(scn.nextLine().equals("Y")) {
+			BoardText gameBoard = new BoardText();
+			GameText g = new GameText();
+			g.gameLoop(gameBoard);
+		}
+		else if (scn.nextLine().equals("N")) {
+			System.out.println("Good game!");
 		}
 	}
 	public void loopForMultipleMoves() {
