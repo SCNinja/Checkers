@@ -3,8 +3,7 @@ package Checkers;
 import java.awt.Color;
 
 public class BoardText {
-	char[][] pieces = new char[8][8];
-
+	char [][] pieces = new char [8][8];
 	public BoardText() {
 		pieces[0][0] = 'r';
 		pieces[0][2] = 'r';
@@ -32,26 +31,27 @@ public class BoardText {
 		pieces[7][5] = 'b';
 		pieces[7][7] = 'b';
 	}
-
 	public String hasWon() {
 		int red = 0;
 		int black = 0;
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (pieces[i][j] == ('R') || pieces[i][j] == ('r')) {
+		for (int i = 0; i<8; i++) {
+			for(int j = 0; j<8; j++) {
+				if (pieces[i][j]==('R')||pieces[i][j]==('r')) {
 					red++;
 				}
-				if (pieces[i][j] == ('B') || pieces[i][j] == ('b')) {
+				if (pieces[i][j]==('B')||pieces[i][j]==('b')) {
 					black++;
 				}
 			}
 		}
-		if (red == 0) {
-			return ("red");
-		} else if (black == 0) {
-			return ("black");
-		} else {
-			return ("none");
+		if(red==0) {
+			return("black");
+		}
+		else if (black==0) {
+			return("red");
+		}
+		else {
+			return("none");
 		}
 	}
 
@@ -72,7 +72,7 @@ public class BoardText {
 		
 		if ((color == Color.RED && (pieces[OGR][OGC] == 'R')) || (color == Color.BLACK && (pieces[OGR][OGC] == 'b'))) {
 			if (color == Color.RED) {
-				if (r2 == r - 1 && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
+				if ((r2 == r-1||r2 == r+1)|| && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
 					System.out.println("VALUE: 1");
 					return 1;
 				} else if (((r2 == r - 2 || r2 == r + 2) && (c2 == c + 2 || c2 == c - 2) && pieces[r2][c2] == 0)) {
@@ -170,10 +170,11 @@ public class BoardText {
 					}
 				}
 			} else if (color == Color.BLACK) {
-				if (r2 == r + 1 && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
+				if (r2 == r+1||r2 == r-1) && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
 					System.out.println("VALUE: 1");
 					return 1;
-				} else if ((r2 == r + 2 && (c2 == c + 2 || c2 == c - 2) && pieces[r2][c2] == 0)) {
+				} 
+				else if ((r2 == r + 2 && (c2 == c + 2 || c2 == c - 2) && pieces[r2][c2] == 0)) {
 					if (c2 == c + 2) {
 						if (r2 == r + 2) {
 							if ((pieces[r + 1][c + 1] == 'R') || (pieces[r + 1][c + 1] == 'r')) {

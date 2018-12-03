@@ -42,6 +42,7 @@ gameBoard = gb;
 		while (gameBoard.hasWon().equals("none"))
 		{
 			display();
+<<<<<<< HEAD
 			listRow.clear();
 			listCol.clear();
 			validityNums.clear();
@@ -49,6 +50,12 @@ gameBoard = gb;
 					+ kings.get(p1) + " kings.");
 			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " moves and has "
 					+ kings.get(p2) + " kings.");
+=======
+			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " move(s) and has "
+					+ kings.get(p1) + " king(s).");
+			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " move(s) and has "
+					+ kings.get(p2) + " king(s).");
+>>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 			if (currPlayer == p1) {
 				System.out.println("Player 1 (RED): please enter a valid move.");
 			}
@@ -165,7 +172,7 @@ gameBoard = gb;
 							p2.decrementKings();
 							kings.put(p2,p2.getKings());
 						}
-						gameBoard.pieces[row+1][col+1] = 0;
+						gameBoard.pieces[row+1][col+1] = 0;						
 					}
 					else if(row2==row-2) {
 						if (gameBoard.pieces[row-1][col+1] == 'R')
@@ -209,18 +216,40 @@ gameBoard = gb;
 						gameBoard.pieces[row-1][col-1] = 0;
 					}
 				}
+<<<<<<< HEAD
 			}
 			//creating player stats
 			
 			
 						
+=======
+				if (currPlayer == p1)
+				{
+					System.out.println("RED jumped a BLACK piece!");
+				}
+				else if (currPlayer == p2)
+				{
+					System.out.println("BLACK jumped a RED piece!");
+				}
+			}			
+>>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 			// check for king (make it to be capital)
+<<<<<<< HEAD
 			if (currPlayer == p1 && row2 == 7) {
 				gameBoard.pieces[listRow.get(listRow.size()-1)][listCol.get(listCol.size()-1)] = 'R';
+=======
+			if (currPlayer == p1 && row2 == 7 && gameBoard.pieces[row][col] != 'R') {
+				gameBoard.pieces[row2][col2] = 'R';
+>>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 				p1.incrementKings();
 				kings.put(p1,p1.getKings());
+<<<<<<< HEAD
 			} else if (currPlayer == p2 && row2 == 0) {
 				gameBoard.pieces[listRow.get(listRow.size()-1)][listCol.get(listCol.size()-1)] = 'B';
+=======
+			} else if (currPlayer == p2 && row2 == 0 && gameBoard.pieces[row][col] != 'B') {
+				gameBoard.pieces[row2][col2] = 'B';
+>>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 				p2.incrementKings();
 				kings.put(p2,p2.getKings());
 			}
@@ -239,11 +268,22 @@ gameBoard = gb;
 		}
 		display();
 		if(gameBoard.hasWon().equals("red")){
-		System.out.println("RED WON in " + moves.get(p1) + " moves!!! RED had " + kings.get(p1) + " kings.");
+		System.out.println("RED WON in " + moves.get(p1) + " moves!!! RED had " + kings.get(p1) + " king(s).");
 		//play again?
 		}
 		else if (gameBoard.hasWon().equals("black")) {
-			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " kings.");
+			System.out.println("BLACK WON in " + moves.get(p2) + " moves!!! BLACK had " + kings.get(p2) + " king(s).");
+		}
+		//play again?
+		System.out.println("Would you like to play again? Enter 'Y' or 'N': ");
+		Scanner scn = new Scanner(System.in);
+		if(scn.nextLine().equals("Y")) {
+			BoardText gameBoard = new BoardText();
+			GameText g = new GameText();
+			g.gameLoop(gameBoard);
+		}
+		else if (scn.nextLine().equals("N")) {
+			System.out.println("Good game!");
 		}
 		System.out.println("Would you like to play again? Enter 'Y' or 'N': ");
 		Scanner scn = new Scanner(System.in);
