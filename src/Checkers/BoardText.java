@@ -72,7 +72,7 @@ public class BoardText {
 		
 		if ((color == Color.RED && (pieces[OGR][OGC] == 'R')) || (color == Color.BLACK && (pieces[OGR][OGC] == 'b'))) {
 			if (color == Color.RED) {
-				if ((r2 == r-1||r2 == r+1)|| && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
+				if ((r2 == r-1||r2 == r+1) && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
 					System.out.println("VALUE: 1");
 					return 1;
 				} else if (((r2 == r - 2 || r2 == r + 2) && (c2 == c + 2 || c2 == c - 2) && pieces[r2][c2] == 0)) {
@@ -170,9 +170,9 @@ public class BoardText {
 					}
 				}
 			} else if (color == Color.BLACK) {
-				if (r2 == r+1||r2 == r-1) && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
+				if ((r2 == r+1||r2 == r-1) && (c2 == c + 1 || c2 == c - 1) && pieces[r2][c2] == 0) {
 					System.out.println("VALUE: 1");
-					return 1;
+					return 1; 
 				} 
 				else if ((r2 == r + 2 && (c2 == c + 2 || c2 == c - 2) && pieces[r2][c2] == 0)) {
 					if (c2 == c + 2) {
