@@ -1,11 +1,13 @@
 package Checkers;
+//current problems:
+//on a double jump, it doesn't get rid of the in between pieces on a bunch of singles(reds)
+//kings are not incrementing (at least visually)
 
 import java.awt.Color;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.lang.NumberFormatException;
 
 public class GameText {
 	private Player p1;
@@ -37,25 +39,20 @@ public class GameText {
 	}
 
 	public void gameLoop(BoardText gb) {
-gameBoard = gb;
+		gameBoard = gb;
 		
 		while (gameBoard.hasWon().equals("none"))
 		{
 			display();
-<<<<<<< HEAD
+
 			listRow.clear();
 			listCol.clear();
 			validityNums.clear();
-			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " moves and has "
-					+ kings.get(p1) + " kings.");
-			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " moves and has "
-					+ kings.get(p2) + " kings.");
-=======
 			System.out.println("Player 1 (RED) has made " + moves.get(p1) + " move(s) and has "
 					+ kings.get(p1) + " king(s).");
 			System.out.println("Player 2 (BLACK) has made " + moves.get(p2) + " move(s) and has "
 					+ kings.get(p2) + " king(s).");
->>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
+			
 			if (currPlayer == p1) {
 				System.out.println("Player 1 (RED): please enter a valid move.");
 			}
@@ -161,105 +158,95 @@ gameBoard = gb;
 				if (validityNums.get(j)==2){
 					System.out.println("HERE!!!!!!!!");
 					System.out.println(row+" "+col+" "+row2+" "+col2);
-					if(row2==row+2) {
-						if (gameBoard.pieces[row+1][col+1] == 'R')
-						{
-							p1.decrementKings();
-							kings.put(p1,p1.getKings());
+
+					if(col==col+2) {
+
+						if(row2==row+2) {
+							if (gameBoard.pieces[row+1][col+1] == 'R')
+							{
+								p1.decrementKings();
+								kings.put(p1,p1.getKings());
+							}
+							else if (gameBoard.pieces[row+1][col+1] == 'B')
+							{
+								p2.decrementKings();
+								kings.put(p2,p2.getKings());
+							}
+							gameBoard.pieces[row+1][col+1] = 0;						
 						}
-						else if (gameBoard.pieces[row+1][col+1] == 'B')
-						{
-							p2.decrementKings();
-							kings.put(p2,p2.getKings());
+						else if(row2==row-2) {
+							if (gameBoard.pieces[row-1][col+1] == 'R')
+							{
+								p1.decrementKings();
+								kings.put(p1,p1.getKings());
+							}
+							else if (gameBoard.pieces[row-1][col+1] == 'B')
+							{
+								p2.decrementKings();
+								kings.put(p2,p2.getKings());
+							}
+							gameBoard.pieces[row-1][col+1] = 0;
 						}
-						gameBoard.pieces[row+1][col+1] = 0;						
 					}
-					else if(row2==row-2) {
-						if (gameBoard.pieces[row-1][col+1] == 'R')
-						{
-							p1.decrementKings();
-							kings.put(p1,p1.getKings());
+					else if(col2==col-2) {
+						if(row2==row+2) {
+							if (gameBoard.pieces[row+1][col-1] == 'R')
+							{
+								p1.decrementKings();
+								kings.put(p1,p1.getKings());
+							}
+							else if (gameBoard.pieces[row+1][col-1] == 'B')
+							{
+								p2.decrementKings();
+								kings.put(p2,p2.getKings());
+							}
+							gameBoard.pieces[row+1][col-1] = 0;
 						}
-						else if (gameBoard.pieces[row-1][col+1] == 'B')
-						{
-							p2.decrementKings();
-							kings.put(p2,p2.getKings());
+						else if(row2==row-2) {
+							if (gameBoard.pieces[row-1][col-1] == 'R')
+							{
+								p1.decrementKings();
+								kings.put(p1,p1.getKings());
+							}
+							else if (gameBoard.pieces[row-1][col-1] == 'B')
+							{
+								p2.decrementKings();
+								kings.put(p2,p2.getKings());
+							}
+							gameBoard.pieces[row-1][col-1] = 0;
 						}
-						gameBoard.pieces[row-1][col+1] = 0;
 					}
+					if (currPlayer == p1)
+					{
+						System.out.println("RED jumped a BLACK piece!");
+					}
+					else if (currPlayer == p2)
+					{
+						System.out.println("BLACK jumped a RED piece!");
+					}
+					
 				}
-				else if(col2==col-2) {
-					if(row2==row+2) {
-						if (gameBoard.pieces[row+1][col-1] == 'R')
-						{
-							p1.decrementKings();
-							kings.put(p1,p1.getKings());
-						}
-						else if (gameBoard.pieces[row+1][col-1] == 'B')
-						{
-							p2.decrementKings();
-							kings.put(p2,p2.getKings());
-						}
-						gameBoard.pieces[row+1][col-1] = 0;
-					}
-					else if(row2==row-2) {
-						if (gameBoard.pieces[row-1][col-1] == 'R')
-						{
-							p1.decrementKings();
-							kings.put(p1,p1.getKings());
-						}
-						else if (gameBoard.pieces[row-1][col-1] == 'B')
-						{
-							p2.decrementKings();
-							kings.put(p2,p2.getKings());
-						}
-						gameBoard.pieces[row-1][col-1] = 0;
-					}
-				}
-<<<<<<< HEAD
+
 			}
-			//creating player stats
-			
-			
-						
-=======
-				if (currPlayer == p1)
-				{
-					System.out.println("RED jumped a BLACK piece!");
-				}
-				else if (currPlayer == p2)
-				{
-					System.out.println("BLACK jumped a RED piece!");
-				}
-			}			
->>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
-			// check for king (make it to be capital)
-<<<<<<< HEAD
-			if (currPlayer == p1 && row2 == 7) {
+		
+
+			if (currPlayer == p1 && (listRow.size()-1) == 7 && gameBoard.pieces[listRow.get(0)][listCol.get(0)] != 'R') {
 				gameBoard.pieces[listRow.get(listRow.size()-1)][listCol.get(listCol.size()-1)] = 'R';
-=======
-			if (currPlayer == p1 && row2 == 7 && gameBoard.pieces[row][col] != 'R') {
-				gameBoard.pieces[row2][col2] = 'R';
->>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 				p1.incrementKings();
 				kings.put(p1,p1.getKings());
-<<<<<<< HEAD
-			} else if (currPlayer == p2 && row2 == 0) {
+			}
+			else if (currPlayer == p2 && (listRow.size()-1) == 0 && gameBoard.pieces[listRow.get(0)][listCol.get(0)] != 'B') { 
 				gameBoard.pieces[listRow.get(listRow.size()-1)][listCol.get(listCol.size()-1)] = 'B';
-=======
-			} else if (currPlayer == p2 && row2 == 0 && gameBoard.pieces[row][col] != 'B') {
-				gameBoard.pieces[row2][col2] = 'B';
->>>>>>> branch 'master' of https://github.com/krausemj17/Checkers.git
 				p2.incrementKings();
 				kings.put(p2,p2.getKings());
 			}
-			
 			if (currPlayer == p1) {
 				currPlayer = p2;
-			} else {
+			} 
+			else {
 				currPlayer = p1;
 			}
-		}
+	}
 		//switch player back to the player that won the game
 		if (currPlayer == p1) {
 			currPlayer = p2;
@@ -285,16 +272,7 @@ gameBoard = gb;
 		else if (scn.nextLine().equals("N")) {
 			System.out.println("Good game!");
 		}
-		System.out.println("Would you like to play again? Enter 'Y' or 'N': ");
-		Scanner scn = new Scanner(System.in);
-		if(scn.nextLine().equals("Y")) {
-			BoardText gameBoard = new BoardText();
-			GameText g = new GameText();
-			g.gameLoop(gameBoard);
-		}
-		else if (scn.nextLine().equals("N")) {
-			System.out.println("Good game!");
-		}
+		scn.close();
 	}
 	public void loopForMultipleMoves() {
 		int row;
