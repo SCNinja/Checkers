@@ -90,15 +90,9 @@ gameBoard = gb;
 				listRow.clear();
 				listCol.clear();
 				display();
-				System.out.println("You entered an incorrect move");
+				System.out.println("You entered an invalid move");
 				System.out.println("Please Enter the row and column of the piece you would like to move");
-				try {
-					row = scnr.nextInt();
-				}
-				catch(NumberFormatException ne) {
-					continue;
-				}
-				
+				row = scnr.nextInt();				
 				col = scnr.nextInt();
 				listRow.add(row);
 				listCol.add(col);
