@@ -45,10 +45,10 @@ public class BoardText {
 			}
 		}
 		if(red==0) {
-			return("red");
+			return("black");
 		}
 		else if (black==0) {
-			return("black");
+			return("red");
 		}
 		else {
 			return("none");

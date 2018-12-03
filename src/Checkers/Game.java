@@ -326,7 +326,7 @@ public class Game extends JFrame implements MouseListener{
 				R10.draw(g,R10.getColor());
 				R11.draw(g,R11.getColor());
 				System.out.println("CLICK 1'S PIECE X "+R11.getXLoc());
-				System.out.println("CLICK 1'S PIECE X "+R11.getYLoc());
+				System.out.println("CLICK 1'S PIECE Y "+R11.getYLoc());
 				R12.draw(g,R12.getColor());
 				
 				Wh1.draw(g, Wh1.getColor());
