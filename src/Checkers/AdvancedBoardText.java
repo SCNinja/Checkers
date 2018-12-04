@@ -76,14 +76,17 @@ public class AdvancedBoardText {
 			return("none");
 		}
 	}
+	
 	/**
 	 * checks for a valid move, there are many varibales that ca determine whether a move is valid or not in a checkers game,
 	 * this method catches them
 	 * @param p - the current player
-	 * @param r - the first row they enter
-	 * @param c - the first col they enter
-	 * @param r2 - the second row they enter
-	 * @param c2 - the second col they enter
+	 * @param OGRI - the first row that was selected
+	 * @param OGCI - the first col that was selected
+	 * @param rI - the first row they enter
+	 * @param cI - the first col they enter
+	 * @param r2I - the second row they enter
+	 * @param c2I - the second col they enter
 	 * @return - there are different cases of valid that will each be returned by a different number
 	 */
 	public int valid(Player p, int OGRI, int OGCI, int rI, int cI, int r2I, int c2I) {

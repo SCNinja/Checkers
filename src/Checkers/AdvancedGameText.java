@@ -8,8 +8,17 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * This class physically creates the board, takes in the players moves and
+ * changes the board and will also end the turn
+ * accordingly
+ * 
+ * @author Moriah Krause, Jonathon Lannon, Meagan McBurney, Paul Hodge, and Sara
+ *         Danenhower
+ */
 
 public class AdvancedGameText {
+	
 	private Player p1;
 	private Player p2;
 	private Player currPlayer;
@@ -21,8 +30,11 @@ public class AdvancedGameText {
 	private ArrayList<Integer>validityNums;
 
 	Scanner scnr;
-
+	/**
+	 * defult constructor for a game
+	 */
 	public AdvancedGameText() {
+		//initializes variables
 		p1 = new Player(Color.RED);
 		p2 = new Player(Color.BLACK);
 		currPlayer = p1;
@@ -37,7 +49,11 @@ public class AdvancedGameText {
 		listCol = new ArrayList<>();
 		validityNums= new ArrayList<>();
 	}
-
+	/**
+	 * the game loop runs all the code, keeps the game going as long as there is not a winner
+	 * it will keep asking for input and changing the board until there is a winner at the end
+	 * @param gb - takes in an advancedgameboard to use to run the game
+	 */
 	public void gameLoop(AdvancedBoardText gb) {
 		gameBoard = gb;
 		
@@ -270,6 +286,9 @@ public class AdvancedGameText {
 		}
 		scn.close();
 	}
+	/**
+	 * loops through for user input until they tell them to stop their turn with a -1, -1
+	 */
 	public void loopForMultipleMoves() {
 		int row;
 		int col;
@@ -285,6 +304,9 @@ public class AdvancedGameText {
 		
 		
 	}
+	/**
+	 * displays the board in a text format by looping through the 2D array
+	 */
 	public void display() {
 		System.out.println("     0   1   2   3   4   5   6   7  \n");
 		for (int i = 0; i < 8; i++) {

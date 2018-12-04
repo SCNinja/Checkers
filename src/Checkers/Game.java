@@ -163,6 +163,9 @@ public class Game extends JFrame implements MouseListener{
 	{
 		return (yPixel-125)/60;
 	}
+	/**
+	 * the next 4 method are methods that had to be overridden but where not used
+	 */
 	//Created a new MouseEvent that gets both the x and y coordinates 
 	public void mouseClicked(MouseEvent me) {			
 	}
@@ -173,6 +176,11 @@ public class Game extends JFrame implements MouseListener{
 	}
 	public void mousePressed(MouseEvent me) {
 	}
+	/**
+	 * code that runs the majority of teh game as opposed to a game loop
+	 * this code is prompted by a click and the game continues as a player clicks, 
+	 * they click is recorded and ideally the board reacts accordingly
+	 */
 	public void mouseReleased(MouseEvent me) {
 		if(!gameBoard.hasWon(currPlayer)) {
 			System.out.println("+++++++++++++++"+clickCount);
@@ -225,6 +233,9 @@ public class Game extends JFrame implements MouseListener{
 			clickCount++;
 		}
 	}
+	/**
+	 * switches two pieces based on their location in an array
+	 */
 	public void switchPieces() {
 		//works with the hard code commented out below but not the code left uncommented
 		int tempX = c1.getX();
@@ -268,8 +279,7 @@ public class Game extends JFrame implements MouseListener{
 		Wh2.setY(tempy);*/
 	}
 	/**
-	 * This method runs the game as long as there are moves available
-	 * @throws InterruptedException 
+	 * This method ened up not being used because the mouse click over ruled it
 	 */
 	public void gameLoop(Board gB) {
 		gameBoard = gB;
@@ -288,7 +298,9 @@ public class Game extends JFrame implements MouseListener{
 		
 			
 		}
-	
+	/**
+	 * takes into account all of the information from the 2D array and graphics and draws the checkers board
+	 */
 	public void displayBoardGUI() {
 		counter++;
 		board = new JPanel() 	

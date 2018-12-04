@@ -4,7 +4,14 @@ import java.awt.Color;
 import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * This class physically creates the board, takes in the players moves and
+ * changes the board and will also end the turn
+ * accordingly
+ * 
+ * @author Moriah Krause, Jonathon Lannon, Meagan McBurney, Paul Hodge, and Sara
+ *         Danenhower
+ */
 public class GameText {
 	private Player p1;
 	private Player p2;
@@ -14,8 +21,11 @@ public class GameText {
 	private Map<Player, Integer> kings;
 
 	Scanner scnr;
-
+/**
+ * defult constructor for a game
+ */
 	public GameText() {
+		//initializes variables
 		p1 = new Player(Color.RED);
 		p2 = new Player(Color.BLACK);
 		currPlayer = p1;
@@ -27,7 +37,11 @@ public class GameText {
 		kings.put(p1,p1.getKings());
 		kings.put(p2,p2.getKings());
 	}
-
+/**
+ * the game loop runs all the code, keeps the game going as long as there is not a winner
+ * it will keep asking for input and changing the board until there is a winner at the end
+ * @param gb - takes in a gameboard to use to run the game
+ */
 	public void gameLoop(BoardText gb) {
 		gameBoard = gb;
 		
@@ -186,7 +200,9 @@ public class GameText {
 			System.out.println("Good game!");
 		}
 	}
-
+	/**
+	 * displays the board in a text format by looping through the 2D array
+	 */
 	public void display() {
 		System.out.println("     0   1   2   3   4   5   6   7  \n");
 		for (int i = 0; i < 8; i++) {
