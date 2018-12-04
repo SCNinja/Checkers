@@ -270,6 +270,7 @@ public class AdvancedGameText {
 		//play again?
 		System.out.println("Would you like to play again? Enter 'Y' or 'N': ");
 		Scanner scn = new Scanner(System.in);
+		
 		if(scn.nextLine().equals("Y")) {
 			AdvancedBoardText gameBoard = new AdvancedBoardText();
 			AdvancedGameText g = new AdvancedGameText();
