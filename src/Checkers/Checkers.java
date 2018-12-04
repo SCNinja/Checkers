@@ -14,8 +14,9 @@ public class Checkers {
 	public static void main(String[]args) {
 		System.out.println("Please Enter whether you would like to play with a GUI or a textbased display: "
 				+ "\nThe GUI is not funtional but will react to hard code and the text interface works. "
-				+ "\nThe \"Advanced\"  "
-				+ "\nIf you would like to run the text interface type TEXT if you would like to see the progress of the GUI type GUI");
+				+ "\nThe \"Advanced\" texted interface is not completely working due to some issues that we could not resolve"
+				+ "\n\nIf you would like to run the text interface type TEXT,if you would like to see the progress of the \"Advanced\" text game type ADVANCEDTEXT, "
+				+ "\nand  if you would like to see the progress of the GUI type GUI");
 		Scanner scnr = new Scanner(System.in);
 		String answer = scnr .nextLine();
 		if (answer.equals("GUI")) {
