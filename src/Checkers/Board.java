@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 /**
- * This class creates a Checkers board, checks to see if the player can make a
+ * This class is for the GUI and  creates a Checkers board, checks to see if the player can make a
  * valid move, and if anyone has won the game
  * 
  * @author Moriah Krause, Jonathon Lannon, Meagan McBurney, Paul Hodge, and Sara
@@ -20,28 +20,33 @@ public class Board extends Game {
 	//Deleted the LinkedLists and storing the pieces in a 2D array instead
 	public Piece[][] pieces;
 	
-	
-	
-	
 	//in Game Class
 	private Click c1;
 	private Click c2;
-
+	/**
+	 * method to be used in testing code to return a click
+	 */
 	public Click getC1() {
 		return c1;
 	}
 
-
+	/**
+	 * method to be used in testing code to set a click's values
+	 */
 	public void setC1(Click c1) {
 		this.c1 = c1;
 	}
 
-
+	/**
+	 * method to be used in testing code to return a click
+	 */
 	public Click getC2() {
 		return c2;
 	}
 
-
+	/**
+	 * method to be used in testing code to set a click's values
+	 */
 	public void setC2(Click c2) {
 		this.c2 = c2;
 	}
@@ -96,17 +101,27 @@ public class Board extends Game {
 		//this.yCoords = new LinkedList<>();
 	}
 
-
+	/**
+	 * returns the 2D array that is stored within a board
+	 * @return the @D array of pieces
+	 */
 	public Piece [][] getPieces() {
 		return pieces;
 	}
-
+	/**
+	 * sets the 2D array within the board to be something
+	 * @param pieces - a 2D array
+	 */
 	public void setPieces(Piece [][] pieces) {
 		this.pieces = pieces;
 	}
 	/**
-	 * checks for a valid move
+	 * checks for a valid move, there are many varibales that ca determine whether a move is valid or not in a checkers game,
+	 * this method catches them
 	 * @param p - the current player
+	 * @param c1 - the players 1st click
+	 * @param c2 - the players 2nd click
+	 * @return - boolean true if the move was valid
 	 */
 	
 	public boolean valid(Player p, Click c1, Click c2) {
@@ -153,7 +168,7 @@ public class Board extends Game {
 	 * @return - true if the current player won(if the other player has no more pieces) and false otherwise
 	 */
 	public boolean hasWon(Player p) {
-		return(false);//to be commented out
+		return(false);//to be commented out when the program works
 		/*if (p.getNumPieces()<=0) {
 			return true;
 		}

@@ -1,9 +1,19 @@
 package Checkers;
 
 import java.awt.Color;
-
+/**
+ * This class is for a more basic texted based game creates a Checkers board, checks to see if the player can make a
+ * valid move, and if anyone has won the game
+ * 
+ * @author Moriah Krause, Jonathon Lannon, Meagan McBurney, Paul Hodge, and Sara
+ *         Danenhower
+ *
+ */
 public class BoardText {
 	char [][] pieces = new char [8][8];
+	/**
+	 * constructor that creates a blank board
+	 */
 	public BoardText() {
 		pieces[0][0] = 'r';
 		pieces[0][2] = 'r';
@@ -31,6 +41,10 @@ public class BoardText {
 		pieces[7][5] = 'b';
 		pieces[7][7] = 'b';
 	}
+	/**
+	 * checks for a winner after their turn
+	 * @return - returns the color of the player that won or that there wasn't a winner yet
+	 */
 	public String hasWon() {
 		int red = 0;
 		int black = 0;
@@ -54,6 +68,16 @@ public class BoardText {
 			return("none");
 		}
 	}
+	/**
+	 * checks for a valid move, there are many varibales that ca determine whether a move is valid or not in a checkers game,
+	 * this method catches them
+	 * @param p - the current player
+	 * @param r - the first row they enter
+	 * @param c - the first col they enter
+	 * @param r2 - the second row they enter
+	 * @param c2 - the second col they enter
+	 * @return - there are different cases of valid that will each be returned by a different number
+	 */
 	public int valid(Player p, int r, int c, int r2, int c2){
 		//in this case you will have to get the players color and then if it is red, the position of the array of 
 		//characters must have a value of r or R for the first input (r, c) 
@@ -64,7 +88,6 @@ public class BoardText {
 		if((color == Color.RED && (pieces[r][c] == 'R'))||
 				(color == Color.BLACK && (pieces[r][c] == 'b')))
 		{
-			System.out.println("HERE");
 			if(color == Color.RED) {
 				if((r2 == r-1||r2 == r+1) && (c2==c+1||c2==c-1)&&pieces[r2][c2]==0)
 				{
