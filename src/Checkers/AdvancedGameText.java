@@ -85,10 +85,8 @@ public class AdvancedGameText {
 			int validityNum = -1;
 			//check all for valid
 			for (int i = 0; i<listRow.size()-1; i++) {
-				System.out.println("Here in lies the problem "+listRow.get(0)+" "+listCol.get(0)+" "+listRow.get(i)+" "+listCol.get(i)+" "+listRow.get(i+1)+" "+listCol.get(i+1));
-				
+
 				int num = gameBoard.valid(currPlayer, listRow.get(0), listCol.get(0),listRow.get(i), listCol.get(i), listRow.get(i+1),listCol.get(i+1) );
-				System.out.println("NUM:"+num);
 				if(num==0) {
 					validityNum = 0;
 					validityNums.clear();
@@ -118,7 +116,6 @@ public class AdvancedGameText {
 				//check all for valid
 				for (int i = 0; i<listRow.size()-1; i++) {
 					int num = gameBoard.valid(currPlayer,listRow.get(0), listCol.get(0), listRow.get(i), listCol.get(i), listRow.get(i+1),listCol.get(i+1) );
-					System.out.println("NUM:"+num);
 					if(num==0) {
 						validityNum = 0;
 						validityNums.clear();
@@ -162,9 +159,7 @@ public class AdvancedGameText {
 				char temp = gameBoard.pieces[row][col];
 				gameBoard.pieces[row][col] = gameBoard.pieces[row2][col2];
 				gameBoard.pieces[row2][col2] = temp;
-				System.out.println("Validity: "+validityNums.get(j));
 				if (validityNums.get(j)==2){
-					System.out.println("HERE!!!!!!!!");
 					System.out.println(row+" "+col+" "+row2+" "+col2);
 
 					if(col2==col+2) {
@@ -184,7 +179,7 @@ public class AdvancedGameText {
 							gameBoard.pieces[row+1][col+1] = 0;						
 						}
 						else if(row2==row-2) {
-							System.out.println("Row");
+
 							if (gameBoard.pieces[row-1][col+1] == 'R')
 							{
 								p1.decrementKings();
@@ -195,7 +190,7 @@ public class AdvancedGameText {
 								p2.decrementKings();
 								kings.put(p2,p2.getKings());
 							}
-							System.out.println("ROW2");
+
 							gameBoard.pieces[row-1][col+1] = 0;
 						}
 					}
@@ -224,7 +219,6 @@ public class AdvancedGameText {
 								p2.decrementKings();
 								kings.put(p2,p2.getKings());
 							}
-							System.out.println("PROBLEM??");
 							gameBoard.pieces[row-1][col-1] = 0;
 						}
 					}
