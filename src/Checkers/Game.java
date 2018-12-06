@@ -270,13 +270,13 @@ public class Game extends JFrame implements MouseListener{
 		System.out.println("COUNTER: "+counter);
 		displayBoardGUI();
 		System.out.println("COUNTER: "+counter);
-		
+		*/
 		int tempx = 4;
 		int tempy = 2;
 		R11.setX(Wh2.getXLoc());
 		R11.setY(Wh2.getYLoc());
 		Wh2.setX(tempx);
-		Wh2.setY(tempy);*/
+		Wh2.setY(tempy);
 	}
 	/**
 	 * This method ened up not being used because the mouse click over ruled it
